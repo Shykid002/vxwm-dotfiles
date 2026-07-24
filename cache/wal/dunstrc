@@ -8,7 +8,7 @@
     scale = 0
     notification_limit = 0
 
-    # Swapped Monospace for your newly installed JetBrainsMono Nerd Font!
+    # Updated to your new font!
     font = JetBrainsMono Nerd Font 10
     line_height = 0
     format = "<b>%s</b>\n%b"
@@ -23,19 +23,19 @@
     separator_color = frame
 
 [urgency_low]
-    background = "#12151b"
-    foreground = "#c3c4c6"
-    frame_color = "#5c6371"
+    background = "#0b0404"
+    foreground = "#c2c0c0"
+    frame_color = "#665454"
     timeout = 10
 
 [urgency_normal]
-    background = "#12151b"
-    foreground = "#c3c4c6"
-    frame_color = "#545B4E"
+    background = "#0b0404"
+    foreground = "#c2c0c0"
+    frame_color = "#575757"
     timeout = 10
 
 [urgency_critical]
-    background = "#12151b"
-    foreground = "#c3c4c6"
-    frame_color = "#545B4E"
-    timeout = 10
+    background = "#0b0404"
+    foreground = "#c2c0c0"
+    frame_color = "#474747"
+    timeout = 20

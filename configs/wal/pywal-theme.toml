@@ -1,0 +1,92 @@
+##############################################
+#                                            #
+#           Pywal Dynamic Theme              #
+#                                            #
+##############################################
+
+code_syntax_highlight = "pywal-theme"
+
+###############################################################################
+# Base Colors
+###############################################################################
+
+full_screen_fg = "{{foreground}}"
+full_screen_bg = "{{background}}"
+
+gradient_color = ["{{color4}}", "{{color5}}"]
+
+###############################################################################
+# File Panel
+###############################################################################
+
+file_panel_fg = "{{foreground}}"
+file_panel_bg = "{{background}}"
+
+file_panel_border = "{{color8}}"
+file_panel_border_active = "{{color4}}"
+
+file_panel_top_directory_icon = "{{color2}}"
+file_panel_top_path = "{{color6}}"
+
+file_panel_item_selected_fg = "{{background}}"
+file_panel_item_selected_bg = "{{color4}}"
+
+###############################################################################
+# Footer
+###############################################################################
+
+footer_fg = "{{foreground}}"
+footer_bg = "{{background}}"
+
+footer_border = "{{color8}}"
+footer_border_active = "{{color2}}"
+
+###############################################################################
+# Sidebar
+###############################################################################
+
+sidebar_fg = "{{foreground}}"
+sidebar_bg = "{{background}}"
+
+sidebar_title = "{{color6}}"
+
+sidebar_border = "{{background}}"
+sidebar_border_active = "{{color1}}"
+
+sidebar_item_selected_fg = "{{background}}"
+sidebar_item_selected_bg = "{{color6}}"
+
+sidebar_divider = "{{color8}}"
+
+###############################################################################
+# Modals
+###############################################################################
+
+modal_fg = "{{foreground}}"
+modal_bg = "{{background}}"
+
+modal_border_active = "{{color4}}"
+
+modal_cancel_fg = "{{background}}"
+modal_cancel_bg = "{{color1}}"
+
+modal_confirm_fg = "{{background}}"
+modal_confirm_bg = "{{color2}}"
+
+###############################################################################
+# Help
+###############################################################################
+
+help_menu_hotkey = "{{color6}}"
+help_menu_title = "{{color5}}"
+
+###############################################################################
+# Special
+###############################################################################
+
+cursor = "{{cursor}}"
+
+correct = "{{color2}}"
+error   = "{{color1}}"
+hint    = "{{color6}}"
+cancel  = "{{color3}}"

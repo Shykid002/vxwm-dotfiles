@@ -11,6 +11,9 @@ if status is-interactive
   alias remove="paru -Rns"
   alias search="paru"
 	alias doas="sudo"
-	alias la="ls -A"
-	alias ls="ls -lh"
+  # Modern eza replacements for ls
+  alias ls="eza --icons --group-directories-first -lh"
+  alias la="eza --icons --group-directories-first -a"
+  alias ll="eza --icons --group-directories-first -lh --git"
+  alias tree="eza --icons --tree --level=2"
 end

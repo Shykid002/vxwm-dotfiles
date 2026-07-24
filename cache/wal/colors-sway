@@ -1,21 +1,21 @@
-set $wallpaper /home/optimist23/Pictures/Wallpapers/General 2880x1440 artwork Simon Stålenhag science fiction futuristic Tales From The Loop.jpg
+set $wallpaper /home/optimist23/Pictures/Wallpapers/wallhaven-0p2klm.png
 
-set $background #12151b
-set $foreground #c3c4c6
+set $background #0b0404
+set $foreground #c2c0c0
 
-set $color0 #12151b
-set $color1 #545B4E
-set $color2 #A98B5D
-set $color3 #C79F60
-set $color4 #DAB068
-set $color5 #E3BB6D
-set $color6 #DFC07E
-set $color7 #c3c4c6
-set $color8 #5c6371
-set $color9 #545B4E
-set $color10 #A98B5D
-set $color11 #C79F60
-set $color12 #DAB068
-set $color13 #E3BB6D
-set $color14 #DFC07E
-set $color15 #c3c4c6
+set $color0 #0b0404
+set $color1 #474747
+set $color2 #575757
+set $color3 #6F6F6F
+set $color4 #8F8F8F
+set $color5 #AEAEAE
+set $color6 #CECECE
+set $color7 #c2c0c0
+set $color8 #665454
+set $color9 #474747
+set $color10 #575757
+set $color11 #6F6F6F
+set $color12 #8F8F8F
+set $color13 #AEAEAE
+set $color14 #CECECE
+set $color15 #c2c0c0

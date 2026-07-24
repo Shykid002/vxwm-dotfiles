@@ -1,22 +1,20 @@
 #!/bin/sh
+# Convert dwm arguments (+ / -) into brightnessctl steps (e.g., 10%+ or 10%-)
+if [ "$1" == "+" ]; then
+    STEP="10%+"
+elif [ "$1" == "-" ]; then
+    STEP="10%-"
+else
+    STEP="$1"
+fi
 
-DEVICE="/sys/class/leds/smc::kbd_backlight"
+# Adjust keyboard brightness
+brightnessctl --device="smc::kbd_backlight" set "$STEP"
 
-CURRENT=$(cat "$DEVICE/brightness")
-MAX=$(cat "$DEVICE/max_brightness")
+# Get current keyboard brightness percentage safely
+BRIGHT=$(brightnessctl --device="smc::kbd_backlight" i | grep -oP '\(\K[0-9]+(?=%\))')
 
-case "$1" in
-    +)
-        NEW=$((CURRENT + 1))
-        [ "$NEW" -gt "$MAX" ] && NEW=$MAX
-        ;;
-    -)
-        NEW=$((CURRENT - 1))
-        [ "$NEW" -lt 0 ] && NEW=0
-        ;;
-    *)
-        exit 1
-        ;;
-esac
+# Send notification with progress bar and static ID (-r 9994)
+dunstify -r 9994 -a "KbdBrightness" "Keyboard Brightness: ${BRIGHT}%" -h int:value:"$BRIGHT" -h string:x-dunst-stack-tag:kbdbrightness
 
-echo "$NEW" > "$DEVICE/brightness"
+

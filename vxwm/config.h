@@ -181,7 +181,7 @@ static const Key keys[] = {
           /* Volume Control (pamixer) */
   { 0, XF86XK_AudioRaiseVolume,  spawn, SHCMD("~/scripts/volume.sh i") },
   { 0, XF86XK_AudioLowerVolume,  spawn, SHCMD("~/scripts/volume.sh d") },
-  { 0, XF86XK_AudioMute,         spawn, SHCMD("~/volume.sh t") },
+  { 0, XF86XK_AudioMute,         spawn, SHCMD("~/scripts/volume.sh t") },
 
   /* Monitor Screen (brightnessctl) */
   { 0, XF86XK_MonBrightnessUp,   spawn, SHCMD("~/scripts/brightness.sh +5%") },

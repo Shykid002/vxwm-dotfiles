@@ -1,0 +1,8 @@
+[Added Associations]
+text/plain=neovide.desktop;nvim.desktop;
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
+application/x-zerosize=neovide.desktop;
+text/css=neovide.desktop;nvim.desktop;
+
+[Default Applications]
+application/x-zerosize=neovide.desktop

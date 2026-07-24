@@ -1,0 +1,113 @@
+# Base
+base
+base-devel
+git
+make
+wget
+unzip
+
+# Networking
+networkmanager
+network-manager-applet
+wpa_supplicant
+
+# Audio
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+wireplumber
+gst-plugin-pipewire
+libpulse
+pamixer
+pulsemixer
+
+# Xorg
+xorg-server
+xorg-xinit
+xorg-xinput
+xorg-xsetroot
+xterm
+
+# X11 Libraries
+libx11
+libxft
+libxinerama
+libxcomposite
+libxdamage
+libxrender
+libxext
+libdrm
+
+# Desktop
+picom
+rofi
+dmenu
+dunst
+ly
+
+# Applications
+kitty
+alacritty
+rxvt-unicode
+thunar
+thunar-volman
+gvfs
+gvfs-mtp
+tumbler
+evince
+zathura
+zathura-pdf-poppler
+mpd
+mpc
+rmpc
+cava
+firefox
+neovim
+neovide
+yazi
+
+# Appearance
+lxappearance
+nwg-look
+qt5ct
+qt6ct
+kvantum
+
+# Fonts
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+ttf-dejavu
+ttf-jetbrains-mono-nerd
+ttf-nerd-fonts-symbols
+ttf-nerd-fonts-symbols-mono
+
+# Utilities
+acpi
+brightnessctl
+fastfetch
+figlet
+htop
+tree
+scrot
+smartmontools
+python-pipx
+xclip
+xdo
+xdotool
+xdg-utils
+xdg-user-dirs-gtk
+xwallpaper
+
+# Power
+tlp
+tlp-rdw
+
+# Graphics
+intel-media-driver
+libva-intel-driver
+vulkan-intel
+
+# Polkit
+polkit-gnome

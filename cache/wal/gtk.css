@@ -1,0 +1,103 @@
+/******************
+ * GTK Colors Enhanced
+ * Automatically updated by Pywal Template
+ ******************/
+
+/* الألوان الأساسية */
+@define-color accent_color #545B4E;          
+@define-color accent_bg_color #A98B5D;       
+@define-color accent_fg_color #c3c4c6;   
+
+/* ألوان نافذة التطبيق */
+@define-color window_bg_color #12151b;   
+@define-color window_fg_color #c3c4c6;   
+
+/* ألوان شريط العنوان */
+@define-color headerbar_bg_color #12151b;    
+@define-color headerbar_fg_color #c3c4c6;
+@define-color headerbar_border_color #5c6371;
+@define-color headerbar_shade_color #12151b;
+
+/* ألوان العناصر المنبثقة */
+@define-color popover_bg_color #12151b;
+@define-color popover_fg_color #c3c4c6;
+
+/* ألوان العرض */
+@define-color view_bg_color #12151b;
+@define-color view_fg_color #c3c4c6;
+
+/* ألوان البطاقات */
+@define-color card_bg_color #12151b;
+@define-color card_fg_color #c3c4c6;
+@define-color card_shade_color rgba(0, 0, 0, 0.5);
+
+/* ألوان الشريط الجانبي */
+@define-color sidebar_bg_color @window_bg_color;
+@define-color sidebar_fg_color @window_fg_color;
+@define-color sidebar_border_color @window_bg_color;
+@define-color sidebar_backdrop_color @window_bg_color;
+
+/* ألوان الخلفية والنص */
+@define-color bg_color #12151b;
+@define-color fg_color #c3c4c6;
+@define-color text_color #c3c4c6;
+@define-color text_color_disabled #5c6371;   
+
+/* ألوان الأزرار */
+@define-color button_bg_color #5c6371;       
+@define-color button_fg_color #c3c4c6;
+@define-color button_hover_color #DAB068;    
+@define-color button_active_color #E3BB6D;   
+@define-color button_checked_bg_color #A98B5D;
+@define-color button_checked_fg_color #c3c4c6;
+
+/* ألوان الإطارات */
+@define-color borders #5c6371;
+@define-color outline_color #5c6371;
+@define-color outline_variant_color #12151b;
+
+/* ألوان الروابط */
+@define-color link_color #DFC07E;            
+@define-color link_visited_color #E3BB6D;
+
+/* ألوان التحذير والخطأ */
+@define-color warning_color #C79F60;         
+@define-color warning_bg_color #12151b;
+@define-color warning_fg_color #c3c4c6;
+@define-color error_color #545B4E;           
+@define-color error_bg_color #12151b;
+@define-color error_fg_color #c3c4c6;
+@define-color success_color #A98B5D;         
+@define-color success_bg_color #12151b;
+@define-color success_fg_color #c3c4c6;
+
+/* ألوان الحالة النشطة والمحددة */
+@define-color selected_bg_color #545B4E;     
+@define-color selected_fg_color #c3c4c6;
+@define-color selected_text_color #c3c4c6;
+
+/* ألوان التفاعلية */
+@define-color hover_color #DAB068;
+@define-color focus_color #545B4E;
+
+/* ألوان وضع الظلام المخصصة */
+@define-color dark_fill_color #12151b;
+@define-color light_fill_color #5c6371;
+
+/* ألوان الاشعارات */
+@define-color info_color #DAB068;
+@define-color info_bg_color #12151b;
+@define-color info_fg_color #c3c4c6;
+
+/* ألوان الشفافية */
+@define-color shade_color rgba(0, 0, 0, 0.3);
+@define-color backdrop_color rgba(0, 0, 0, 0.5);
+@define-color overlay_color rgba(0, 0, 0, 0.2);
+
+/******************
+ * Structural Force Fixes
+ ******************/
+window, .background, dialog, messagedialog, headerbar, notebook {
+    background-color: @window_bg_color !important;
+    color: @window_fg_color !important;
+}

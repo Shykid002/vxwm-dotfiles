@@ -1,0 +1,28 @@
+{
+    "checksum": "665e69f21777589c7a8623574f1c57e1",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/General 2560x1707 nature macro leaves plants red.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#311615",
+        "foreground": "#cbc4c4",
+        "cursor": "#cbc4c4"
+    },
+    "colors": {
+        "color0": "#311615",
+        "color1": "#D5C222",
+        "color2": "#A39F61",
+        "color3": "#7D7F93",
+        "color4": "#A5AAA3",
+        "color5": "#CBC5A6",
+        "color6": "#A8B5CE",
+        "color7": "#cbc4c4",
+        "color8": "#7a6564",
+        "color9": "#D5C222",
+        "color10": "#A39F61",
+        "color11": "#7D7F93",
+        "color12": "#A5AAA3",
+        "color13": "#CBC5A6",
+        "color14": "#A8B5CE",
+        "color15": "#cbc4c4"
+    }
+}

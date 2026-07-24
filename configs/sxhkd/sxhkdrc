@@ -1,0 +1,177 @@
+#======================================================================#
+#                         WM INDEPENDENT HOTKEYS                       #
+#======================================================================#
+
+#-------- Main Apps -------#
+
+# Terminal emulator
+super + Return
+	kitty
+
+# Program launcher
+super + space
+	rofi -show
+
+# File manager
+super + y
+	alacritty -e yazi
+
+# Text editor
+super + v
+	alacritty -e nvim
+
+
+#-------- System Scripts & Utility Menus -------#
+
+# Lockscreen
+ctrl + alt + l
+	sh $HOME/.local/bin/screen-lock.sh
+
+# Power menu (Primary & Alternate)
+super + {p,alt + 0}
+	$HOME/.config/rofi/bin/menu_powermenu
+
+# Mount Android phones
+super + alt + a
+	OpenApps --Android
+
+# Screenshot utility menu
+super + alt + s
+	OpenApps --Screenshot
+
+# Quick screenshot capture (Print key)
+Print
+	$HOME/.config/rofi/bin/applet_screenshot
+
+# Scratchpad
+super + alt + o
+	OpenApps --scratch
+
+# Set random wallpaper
+super + w
+	sh $HOME/.local/bin/SelectWallpaper
+
+
+#-------- Hardware Controls -------#
+
+# Manage brightness
+XF86MonBrightness{Up,Down}
+	sh Brightness {up,down}
+
+# Volume control (Dedicated media keys)
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	Volume{ --inc, --dec, --toggle}
+
+# Fallback volume control (F-keys)
+super + {f1,f2}
+	amixer -Mq set Master,0 5%{+,-} unmute && notify-send 'Volume Changed' -u low -t 1500
+
+
+#-------- SXHKD Core -------#
+
+# Reload sxhkd configuration
+super + Escape
+	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config' -t 1500
+
+
+#======================================================================#
+#                             BSPWM HOTKEYS                            #
+#======================================================================#
+
+#-------- Session Controls -------#
+
+# Quit or restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# Close and kill window
+super + c
+	sh ~/.config/sxhkd/window-kill.sh
+
+
+#-------- Desktop & Workspace Management -------#
+
+# Switch workspace sequentially
+super + {Left,Right}
+	bspc desktop -f {prev,next}
+
+# Focus or send window to a specific desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# Send focused node to workspace directionally
+super + ctrl + {Left,Right}
+	bspc node -d {prev,next} '--follow'
+
+
+#-------- Window Layouts & Flags -------#
+
+# Alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# Set the window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# Set the node flags
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+
+#-------- Window Focus & Swaps -------#
+
+# Rotate desktop layout
+ctrl + Tab
+	bspc node @/ --rotate {90,-90}
+
+# Focus or swap node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# Swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
+
+# Send newest marked node to newest preselected node
+super + shift + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+
+#-------- Window Preselection Control -------#
+
+# Preselect the window splitting direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# Preselect the split ratio profile
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# Cancel the preselection layout for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+
+#-------- Window Resizing & Movement -------#
+
+# Move a floating window or node positionally
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Horizontal Tiled Resize (Width)
+super + ctrl + {y,u}
+  {bspc node -z right 20 0 || bspc node -z left 20 0,\
+	 bspc node -z right -20 0 || bspc node -z left -20 0}
+# Vertical Tiled Resize (Height)
+super + ctrl + {i,o}
+	{bspc node -z bottom 0 20 || bspc node -z top 0 20,\
+	 bspc node -z bottom 0 -20 || bspc node -z top 0 -20}
+
+# Zoom in/out floating window size
+super + alt + {y,u}
+	{ \
+	xdotool getactivewindow windowmove --relative -- -50 -25 ; xdo resize -w +100 -h +50; ,\
+	xdotool getactivewindow windowmove --relative -- +50 +25 ; xdo resize -w -100 -h -50 \
+	}
+

@@ -1,0 +1,28 @@
+{
+    "checksum": "250702c1d5efccad77ca919ad59e0589",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/solarized-wall-47.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0b121a",
+        "foreground": "#c2c3c5",
+        "cursor": "#c2c3c5"
+    },
+    "colors": {
+        "color0": "#0b121a",
+        "color1": "#9A0F0D",
+        "color2": "#EC0306",
+        "color3": "#E21E09",
+        "color4": "#AC451C",
+        "color5": "#EB6005",
+        "color6": "#0CCC46",
+        "color7": "#c2c3c5",
+        "color8": "#5a626f",
+        "color9": "#9A0F0D",
+        "color10": "#EC0306",
+        "color11": "#E21E09",
+        "color12": "#AC451C",
+        "color13": "#EB6005",
+        "color14": "#0CCC46",
+        "color15": "#c2c3c5"
+    }
+}

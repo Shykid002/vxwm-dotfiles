@@ -1,0 +1,28 @@
+{
+    "checksum": "2b1a6a902d1bb89d3d38dcdc8ab072fb",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/nayam-gP03rRKJBps-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#14080d",
+        "foreground": "#c4c1c2",
+        "cursor": "#c4c1c2"
+    },
+    "colors": {
+        "color0": "#14080d",
+        "color1": "#C82E40",
+        "color2": "#9B5577",
+        "color3": "#27A159",
+        "color4": "#1D0EAB",
+        "color5": "#AE5C88",
+        "color6": "#B06B8F",
+        "color7": "#c4c1c2",
+        "color8": "#6b585f",
+        "color9": "#C82E40",
+        "color10": "#9B5577",
+        "color11": "#27A159",
+        "color12": "#1D0EAB",
+        "color13": "#AE5C88",
+        "color14": "#B06B8F",
+        "color15": "#c4c1c2"
+    }
+}

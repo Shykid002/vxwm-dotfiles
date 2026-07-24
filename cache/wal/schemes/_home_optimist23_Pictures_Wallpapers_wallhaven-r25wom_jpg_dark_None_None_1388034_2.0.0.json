@@ -1,0 +1,28 @@
+{
+    "checksum": "5ad28a29d8f0304923d0c8b351a85d48",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/wallhaven-r25wom.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0c1006",
+        "foreground": "#c2c3c0",
+        "cursor": "#c2c3c0"
+    },
+    "colors": {
+        "color0": "#0c1006",
+        "color1": "#155F29",
+        "color2": "#770345",
+        "color3": "#2C6746",
+        "color4": "#8E0250",
+        "color5": "#AD0267",
+        "color6": "#B7086A",
+        "color7": "#c2c3c0",
+        "color8": "#636956",
+        "color9": "#155F29",
+        "color10": "#770345",
+        "color11": "#2C6746",
+        "color12": "#8E0250",
+        "color13": "#AD0267",
+        "color14": "#B7086A",
+        "color15": "#c2c3c0"
+    }
+}

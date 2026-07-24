@@ -1,0 +1,91 @@
+# Font
+set font "JetBrainsMono Nerd Font 12"
+
+# Set pages direction
+map <C-a> set page-right-to-left true
+map <C-A> set page-right-to-left false
+
+# Custom page navigation
+map n navigate next
+map b navigate previous
+
+# History
+set show-recent 3
+# Color scheme - Gruvbox Dark
+set default-bg              "#282828"
+set default-fg              "#ebdbb2"
+set statusbar-bg            "#3c3836"
+set statusbar-fg            "#ebdbb2"
+set inputbar-bg             "#3c3836"
+set inputbar-fg             "#ebdbb2"
+set notification-bg         "#3c3836"
+set notification-fg         "#ebdbb2"
+set notification-error-bg   "#cc241d"
+set notification-error-fg   "#fbf1c7"
+set notification-warning-bg "#d79921"
+set notification-warning-fg "#282828"
+
+# Highlight colors
+set highlight-color         "#83a598"
+set highlight-active-color  "#458588"
+
+# Completion
+set completion-bg           "#3c3836"
+set completion-fg           "#ebdbb2"
+set completion-highlight-fg "#282828"
+set completion-highlight-bg "#83a598"
+set completion-group-bg     "#3c3836"
+set completion-group-fg     "#458588"
+
+# Recolor (invert) PDF content with Gruvbox colors
+set recolor                 true
+set recolor-keephue         true
+set recolor-darkcolor       "#282828"
+set recolor-lightcolor      "#ebdbb2"
+
+# Smooth scrolling
+set scroll-step             50
+
+# Enable page cache
+set page-cache              true
+
+# Hide UI elements
+set show-scrollbars         false
+set statusbar-h-padding     5
+set statusbar-v-padding     2
+set selection-clipboard clipboard
+
+#----------------------------------#
+" Zoom in/out
+map [normal]     z zoom in
+map [normal]     Z zoom out
+map [fullscreen] z zoom in
+map [fullscreen] Z zoom out
+
+
+" Scroll
+map [normal]     u scroll half-up
+map [normal]     d scroll half-down
+map [fullscreen] u scroll half-up
+map [fullscreen] d scroll half-down
+
+" Fullscreen
+map [normal]     f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+
+" Reload
+map [normal]     <C-r> reload
+map [fullscreen] <C-r> reload
+
+" Status bar
+map [normal]     t toggle_statusbar
+map [fullscreen] t toggle_statusbar
+
+" Set width as in mupdf
+map [normal]     H adjust_window best-fit
+map [normal]     W adjust_window width
+map [fullscreen] H adjust_window best-fit
+map [fullscreen] W adjust_window width
+
+map [normal]     i set recolor
+map [fullscreen] i set recolor

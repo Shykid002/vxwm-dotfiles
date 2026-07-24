@@ -1,0 +1,28 @@
+{
+    "checksum": "c6f8954f164d0af0aa5af26778f5ec06",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/brain-shell-default-2.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#112129",
+        "foreground": "#c3c7c9",
+        "cursor": "#c3c7c9"
+    },
+    "colors": {
+        "color0": "#112129",
+        "color1": "#3F8B61",
+        "color2": "#54986D",
+        "color3": "#5CA174",
+        "color4": "#9ABD7A",
+        "color5": "#77B188",
+        "color6": "#A8CE88",
+        "color7": "#c3c7c9",
+        "color8": "#606f76",
+        "color9": "#3F8B61",
+        "color10": "#54986D",
+        "color11": "#5CA174",
+        "color12": "#9ABD7A",
+        "color13": "#77B188",
+        "color14": "#A8CE88",
+        "color15": "#c3c7c9"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/2026-06-25-011928_1920x1080_scrot.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0f0f0d",
+        "foreground": "#e8d9d4",
+        "cursor": "#e8d9d4"
+    },
+    "colors": {
+        "color0": "#0f0f0d",
+        "color1": "#6B5F58",
+        "color2": "#935D43",
+        "color3": "#8C746C",
+        "color4": "#A0857B",
+        "color5": "#AA9691",
+        "color6": "#D1B0A8",
+        "color7": "#e8d9d4",
+        "color8": "#a29794",
+        "color9": "#6B5F58",
+        "color10": "#935D43",
+        "color11": "#8C746C",
+        "color12": "#A0857B",
+        "color13": "#AA9691",
+        "color14": "#D1B0A8",
+        "color15": "#e8d9d4"
+    }
+}

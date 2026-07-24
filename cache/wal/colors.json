@@ -1,0 +1,29 @@
+{
+    "checksum": "7036482e9d9394d49b82fd7e0f771866",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/General 2880x1440 artwork Simon Stålenhag science fiction futuristic Tales From The Loop.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#12151b",
+        "foreground": "#c3c4c6",
+        "cursor": "#c3c4c6"
+    },
+    "colors": {
+        "color0": "#12151b",
+        "color1": "#545B4E",
+        "color2": "#A98B5D",
+        "color3": "#C79F60",
+        "color4": "#DAB068",
+        "color5": "#E3BB6D",
+        "color6": "#DFC07E",
+        "color7": "#c3c4c6",
+        "color8": "#5c6371",
+        "color9": "#545B4E",
+        "color10": "#A98B5D",
+        "color11": "#C79F60",
+        "color12": "#DAB068",
+        "color13": "#E3BB6D",
+        "color14": "#DFC07E",
+        "color15": "#c3c4c6"
+    }
+}

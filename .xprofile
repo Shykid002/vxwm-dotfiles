@@ -1,0 +1,28 @@
+#!/bin/sh
+
+#export QT_QPA_PLATFORMTHEME=qt6ct
+#export QT_STYLE_OVERRIDE=kvantum
+
+# Update root window title with time/load
+(
+while true; do
+    xsetroot -name "$(date '+%a %d %b %H:%M')"
+    sleep 30
+done &
+) &
+
+# Polkit
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# Wallpaper
+xwallpaper --stretch "$HOME/Pictures/Wallpapers/solarized-wall-47.jpg"
+
+# Pywal
+wal -i "$HOME/Pictures/Wallpapers/solarized-wall-47.jpg"
+xrdb -merge "$HOME/.cache/wal/colors.Xresources"
+
+# Compositor
+picom &
+
+# Notifications
+dunst &

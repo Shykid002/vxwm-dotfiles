@@ -1,0 +1,29 @@
+# Touch-pad
+xf86-input-libinput
+
+# Cursor
+bibata-cursor-theme-bin
+
+# Icons
+gruvbox-plus-icon-theme
+papirus-icon-theme
+# GTK
+adw-gtk-theme
+
+# File Manager
+superfile
+
+# Fonts
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+ttf-dejavu
+ttf-jetbrains-mono-nerd
+ttf-nerd-fonts-symbols
+ttf-nerd-fonts-symbols-mono
+
+# Utilities
+mbpfan
+
+# Appearance
+python-pywal16

@@ -1,0 +1,28 @@
+{
+    "checksum": "89566a411477f6ea51390b62cb53639e",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/General 2560x1600 space nebula stars digital art.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#140810",
+        "foreground": "#c4c1c3",
+        "cursor": "#c4c1c3"
+    },
+    "colors": {
+        "color0": "#140810",
+        "color1": "#1A4970",
+        "color2": "#9D0E1C",
+        "color3": "#E2161D",
+        "color4": "#B02C52",
+        "color5": "#163292",
+        "color6": "#14519D",
+        "color7": "#c4c1c3",
+        "color8": "#6b5864",
+        "color9": "#1A4970",
+        "color10": "#9D0E1C",
+        "color11": "#E2161D",
+        "color12": "#B02C52",
+        "color13": "#163292",
+        "color14": "#14519D",
+        "color15": "#c4c1c3"
+    }
+}

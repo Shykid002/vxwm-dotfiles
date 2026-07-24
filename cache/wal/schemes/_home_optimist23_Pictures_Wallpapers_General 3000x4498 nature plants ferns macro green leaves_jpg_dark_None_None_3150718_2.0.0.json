@@ -1,0 +1,28 @@
+{
+    "checksum": "375f254d22309a259002736fb2346b5e",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/General 3000x4498 nature plants ferns macro green leaves.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#071007",
+        "foreground": "#c1c3c1",
+        "cursor": "#c1c3c1"
+    },
+    "colors": {
+        "color0": "#071007",
+        "color1": "#078907",
+        "color2": "#2C9309",
+        "color3": "#2C9E14",
+        "color4": "#058C27",
+        "color5": "#57A312",
+        "color6": "#4FA44D",
+        "color7": "#c1c3c1",
+        "color8": "#566956",
+        "color9": "#078907",
+        "color10": "#2C9309",
+        "color11": "#2C9E14",
+        "color12": "#058C27",
+        "color13": "#57A312",
+        "color14": "#4FA44D",
+        "color15": "#c1c3c1"
+    }
+}

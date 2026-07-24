@@ -1,0 +1,28 @@
+{
+    "checksum": "5ff0b4200a2706ef165a30c238291c6b",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/wallhaven-jexkwm.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#221c0f",
+        "foreground": "#c7c6c3",
+        "cursor": "#c7c6c3"
+    },
+    "colors": {
+        "color0": "#221c0f",
+        "color1": "#6A614F",
+        "color2": "#96652B",
+        "color3": "#B36522",
+        "color4": "#91754E",
+        "color5": "#D89733",
+        "color6": "#A38B65",
+        "color7": "#c7c6c3",
+        "color8": "#736c5e",
+        "color9": "#6A614F",
+        "color10": "#96652B",
+        "color11": "#B36522",
+        "color12": "#91754E",
+        "color13": "#D89733",
+        "color14": "#A38B65",
+        "color15": "#c7c6c3"
+    }
+}

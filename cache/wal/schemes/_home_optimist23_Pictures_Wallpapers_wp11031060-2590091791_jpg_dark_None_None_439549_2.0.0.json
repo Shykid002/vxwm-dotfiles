@@ -1,0 +1,28 @@
+{
+    "checksum": "5ce1b117079a0d61afe033165ee8f246",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/wp11031060-2590091791.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0b1b1b",
+        "foreground": "#c2c6c6",
+        "cursor": "#c2c6c6"
+    },
+    "colors": {
+        "color0": "#0b1b1b",
+        "color1": "#4A3949",
+        "color2": "#274A5B",
+        "color3": "#5B5C5D",
+        "color4": "#8D7879",
+        "color5": "#56748B",
+        "color6": "#748792",
+        "color7": "#c2c6c6",
+        "color8": "#5a6f6f",
+        "color9": "#4A3949",
+        "color10": "#274A5B",
+        "color11": "#5B5C5D",
+        "color12": "#8D7879",
+        "color13": "#56748B",
+        "color14": "#748792",
+        "color15": "#c2c6c6"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "checksum": "9da4bac13402da5f8cf687c17c9fb8fa",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/red-demon-girl.png",
+    "alpha": "100",
+    "special": {
+        "background": "#100a17",
+        "foreground": "#c3c1c5",
+        "cursor": "#c3c1c5"
+    },
+    "colors": {
+        "color0": "#100a17",
+        "color1": "#3B4145",
+        "color2": "#544A46",
+        "color3": "#705D54",
+        "color4": "#BB2A17",
+        "color5": "#E6240C",
+        "color6": "#8E6D5F",
+        "color7": "#c3c1c5",
+        "color8": "#62596d",
+        "color9": "#3B4145",
+        "color10": "#544A46",
+        "color11": "#705D54",
+        "color12": "#BB2A17",
+        "color13": "#E6240C",
+        "color14": "#8E6D5F",
+        "color15": "#c3c1c5"
+    }
+}

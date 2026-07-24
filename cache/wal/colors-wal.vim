@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/optimist23/Pictures/Wallpapers/General 2880x1440 artwork Simon Stålenhag science fiction futuristic Tales From The Loop.jpg"
+let background = "#12151b"
+let foreground = "#c3c4c6"
+let cursor     = "#c3c4c6"
+
+" Colors
+let color0  = "#12151b"
+let color1  = "#545B4E"
+let color2  = "#A98B5D"
+let color3  = "#C79F60"
+let color4  = "#DAB068"
+let color5  = "#E3BB6D"
+let color6  = "#DFC07E"
+let color7  = "#c3c4c6"
+let color8  = "#5c6371"
+let color9  = "#545B4E"
+let color10 = "#A98B5D"
+let color11 = "#C79F60"
+let color12 = "#DAB068"
+let color13 = "#E3BB6D"
+let color14 = "#DFC07E"
+let color15 = "#c3c4c6"

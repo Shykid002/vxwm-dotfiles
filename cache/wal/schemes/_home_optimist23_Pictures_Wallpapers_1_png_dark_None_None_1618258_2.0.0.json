@@ -1,0 +1,28 @@
+{
+    "checksum": "a6b497d50ad0a02aad22afb4e69d128d",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/1.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0b0812",
+        "foreground": "#c2c1c3",
+        "cursor": "#c2c1c3"
+    },
+    "colors": {
+        "color0": "#0b0812",
+        "color1": "#F02336",
+        "color2": "#EA3547",
+        "color3": "#AC4D4B",
+        "color4": "#DE544E",
+        "color5": "#5C9473",
+        "color6": "#A99572",
+        "color7": "#c2c1c3",
+        "color8": "#5d576a",
+        "color9": "#F02336",
+        "color10": "#EA3547",
+        "color11": "#AC4D4B",
+        "color12": "#DE544E",
+        "color13": "#5C9473",
+        "color14": "#A99572",
+        "color15": "#c2c1c3"
+    }
+}

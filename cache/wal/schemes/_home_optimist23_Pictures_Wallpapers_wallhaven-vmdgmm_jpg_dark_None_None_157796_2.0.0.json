@@ -1,0 +1,28 @@
+{
+    "checksum": "4dfd16f40195e886c8a89f7938bc68eb",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/wallhaven-vmdgmm.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#23110f",
+        "foreground": "#c8c3c3",
+        "cursor": "#c8c3c3"
+    },
+    "colors": {
+        "color0": "#23110f",
+        "color1": "#CA0F17",
+        "color2": "#9C6351",
+        "color3": "#7E855E",
+        "color4": "#999B68",
+        "color5": "#B0A49E",
+        "color6": "#CCC2AF",
+        "color7": "#c8c3c3",
+        "color8": "#74605e",
+        "color9": "#CA0F17",
+        "color10": "#9C6351",
+        "color11": "#7E855E",
+        "color12": "#999B68",
+        "color13": "#B0A49E",
+        "color14": "#CCC2AF",
+        "color15": "#c8c3c3"
+    }
+}

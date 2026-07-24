@@ -1,0 +1,22 @@
+# ==========================
+# Build Artifacts
+# ==========================
+
+# VXWM
+vxwm/*.o
+vxwm/vxwm
+
+# Vcompmgr
+vcompmgr/*.o
+vcompmgr/vcompmgr
+
+# Archives
+*.tar.gz
+
+# Editor
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store

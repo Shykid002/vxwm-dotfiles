@@ -59,6 +59,8 @@ get_battery() {
     esac
 }
 
+
+
 # ==========================================
 # Main Loop
 # ==========================================
@@ -66,10 +68,11 @@ get_battery() {
 while true; do
 
     BATTERY="$(get_battery)"
+    MEM="$(free -h | awk '/Mem:/ {sub(/i/, "", $3); print $3}')"
     DATE="$(date '+%a %d %b')"
     TIME="$(date '+%H:%M')"
 
-    xsetroot -name " ${BATTERY} | ${DATE} | ${TIME} "
+    xsetroot -name " ${BATTERY}| 󰍛 ${MEM} | ${DATE} | ${TIME} "
 
     sleep 10
 

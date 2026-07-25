@@ -10,8 +10,25 @@ static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 0;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+
+/*static const char *numbers[] = {
+    "一", "二", "三", "四", "五",
+    "六", "七", "八", "九"
+};*/
+/*static const char *numbers[] = {
+    "",
+    "󰈹",
+    "󰆍",
+    "󰙯",
+    "󰎄",
+    "󰌪",
+    "󰖟",
+    "󰇄",
+    "󰒓"
+};*/
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
 static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=10";
+
 #define COORDINATES_STYLE "[x%d y%d]" /* The style of coordinates displayed in bar, do not remove %d. */
 
 static MAYBE_CONST char normbgcolor[]           = "#222222";
@@ -55,10 +72,11 @@ static const int right_sidepad = 300;        /* right horizontal padding of bar 
 #endif
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
+static const char *tags[] = { "  ", "  ", "  ", "  ", " 󰎄 ", " 󰭹 ", " 󰕧 ", " 󰈙 ", " 󰒓 " };
 
 #if OCCUPIED_TAGS_DECORATION
-static const char *occupiedtags[] = { "1+", "2+", "3+", "4+", "5+", "6+", "7+", "8+", "9+" };
+static const char *occupiedtags[] = { "  + ", "  + ", "  + ", "  + ", " 󰎄 + ", " 󰭹 + ", " 󰕧 + ", " 󰈙 + ", " 󰒓 + " };
 #endif
 
 #if INFINITE_TAGS

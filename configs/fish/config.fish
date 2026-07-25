@@ -7,6 +7,8 @@ if status is-interactive
 	set -gx EDITOR nvim
 	set -gx VISUAL nvim
   
+  alias c="clear"
+  alias ff="fastfetch"
   alias install="paru -S"
   alias remove="paru -Rns"
   alias search="paru"

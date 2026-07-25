@@ -341,6 +341,8 @@ SCRIPTS=(
     rofi-wallpaper.sh
     volume.sh
     wal-dunst.sh
+    vxwm_bar.sh
+    kbdbrightness.sh
 )
 
 echo -e "${BLUE}[INFO]${RESET} Installing utility scripts..."

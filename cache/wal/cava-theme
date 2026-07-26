@@ -1,0 +1,32 @@
+[general]
+sleep_timer = 3
+noise_reduction = 0.88
+
+[color]
+
+; Pywal colors
+gradient = 1
+gradient_color_1 = '#304555'
+gradient_color_2 = '#30516C'
+gradient_color_3 = '#56565B'
+gradient_color_4 = '#976959'
+gradient_color_5 = '#B78D73'
+gradient_color_6 = '#47718B'
+gradient_color_7 = '#c6c4c2'
+gradient_color_8 = '#70675c'
+gradient_color_9 = '#304555'
+gradient_color_10 = '#30516C'
+
+; Background color from Pywal
+; background = '#1e160d'
+
+; Foreground color
+; foreground = '#c6c4c2'
+
+[input]
+; Increase sensitivity
+sensitivity = 100
+
+[general]
+; Increase framerate for smoother rendering
+framerate = 60

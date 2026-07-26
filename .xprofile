@@ -10,6 +10,9 @@ xwallpaper --stretch "$HOME/Pictures/Wallpapers/solarized-wall-47.jpg"
 wal -i "$HOME/Pictures/Wallpapers/solarized-wall-47.jpg"
 xrdb -merge "$HOME/.cache/wal/colors.Xresources"
 
+# MDP
+pgrep -x mpd >/dev/null || mpd &
+
 # Compositor
 picom &
 

@@ -18,4 +18,9 @@ if status is-interactive
   alias la="eza --icons --group-directories-first -a"
   alias ll="eza --icons --group-directories-first -lh --git"
   alias tree="eza --icons --tree --level=2"
+
+  # kitty aliases
+  alias kh="kitty @ launch --location=hsplit"
+  alias kv="kitty @ launch --location=vsplit"
+
 end

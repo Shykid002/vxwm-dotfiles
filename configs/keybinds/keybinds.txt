@@ -1,0 +1,174 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                        󰘳  VXWM KEYBINDINGS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+󰌌 Launchers
+
+  Super + P                  Application Launcher (Rofi)
+  Super + Shift + Enter      Kitty Terminal
+  Super + E                  Thunar File Manager
+  Super + W                  Wallpaper Selector
+
+──────────────────────────────────────────────────────────────────────
+
+󰖲 Window Management
+
+  Super + J                  Focus Next Window
+  Super + K                  Focus Previous Window
+  Super + Return             Promote Window to Master
+  Super + Shift + C          Close Focused Window
+  Super + Shift + Space      Toggle Floating
+  Super + Q                  Enhanced Floating Toggle
+  Super + Shift + F          Toggle Fullscreen
+
+──────────────────────────────────────────────────────────────────────
+
+󰉼 Layouts
+
+  Super + T                  Tile Layout
+  Super + F                  Floating Layout
+  Super + M                  Monocle Layout
+  Super + Space              Cycle Layouts
+  Super + B                  Toggle Status Bar
+
+──────────────────────────────────────────────────────────────────────
+
+󰍹 Master Area
+
+  Super + H                  Shrink Master Area
+  Super + L                  Expand Master Area
+  Super + I                  Increase Master Clients
+  Super + D                  Decrease Master Clients
+
+──────────────────────────────────────────────────────────────────────
+
+󰊠 Workspaces
+
+  Super + 1-9                View Workspace
+  Alt + 1-9                  Move Window to Workspace
+  Super + Ctrl + 1-9         Toggle Workspace
+  Super + Ctrl + Shift + 1-9 Toggle Window on Workspace
+  Super + 0                  View All Workspaces
+  Super + Shift + 0          Tag Window on All Workspaces
+  Super + Tab                Previous Workspace
+
+──────────────────────────────────────────────────────────────────────
+
+󰍺 Multi-Monitor
+
+  Super + ,                  Focus Previous Monitor
+  Super + .                  Focus Next Monitor
+  Super + Shift + ,          Send Window to Previous Monitor
+  Super + Shift + .          Send Window to Next Monitor
+
+──────────────────────────────────────────────────────────────────────
+
+󰒓 Volume
+
+  XF86AudioRaiseVolume       Increase Volume
+  XF86AudioLowerVolume       Decrease Volume
+  XF86AudioMute              Toggle Mute
+
+──────────────────────────────────────────────────────────────────────
+
+󰃞 Brightness
+
+  XF86MonBrightnessUp        Increase Brightness
+  XF86MonBrightnessDown      Decrease Brightness
+
+──────────────────────────────────────────────────────────────────────
+
+󰌷 Keyboard Backlight
+
+  XF86KbdBrightnessUp        Increase Keyboard Backlight
+  XF86KbdBrightnessDown      Decrease Keyboard Backlight
+
+──────────────────────────────────────────────────────────────────────
+
+󰄀 Screenshots
+
+  super + S                      Area Screenshot
+
+──────────────────────────────────────────────────────────────────────
+
+󰘳 Appearance
+
+  Super + W                  Change Wallpaper & Generate Pywal Theme
+  Super + F5                 Reload Xresources (Pywal Colors)
+
+──────────────────────────────────────────────────────────────────────
+
+󰆾 Gaps
+
+  Super + -                  Decrease Gaps
+  Super + =                  Increase Gaps
+  Super + Shift + =          Reset Gaps
+
+──────────────────────────────────────────────────────────────────────
+
+󰹑 Move Windows
+
+  Super + ←                  Move Window Left
+  Super + →                  Move Window Right
+  Super + ↑                  Move Window Up
+  Super + ↓                  Move Window Down
+
+──────────────────────────────────────────────────────────────────────
+
+󰩨 Resize Windows
+
+  Super + Ctrl + ←           Resize Left
+  Super + Ctrl + →           Resize Right
+  Super + Ctrl + ↑           Resize Up
+  Super + Ctrl + ↓           Resize Down
+
+──────────────────────────────────────────────────────────────────────
+
+󰑓 Directional Focus
+
+  Alt + ←                    Focus Left Window
+  Alt + →                    Focus Right Window
+  Alt + ↑                    Focus Window Above
+  Alt + ↓                    Focus Window Below
+
+──────────────────────────────────────────────────────────────────────
+
+󰇀 Infinite Tags
+
+  Super + R                  Return Canvas to Origin
+  Super + Shift + ←          Move Canvas Left
+  Super + Shift + →          Move Canvas Right
+  Super + Shift + ↑          Move Canvas Up
+  Super + Shift + ↓          Move Canvas Down
+  Super + Shift + D          Center Focused Window
+  Super + Ctrl + Z           Pin / Unpin Window
+
+──────────────────────────────────────────────────────────────────────
+
+󰕾 Desktop Zoom
+
+  Super + =                  Zoom In
+  Super + -                  Zoom Out
+  Alt + R                    Reset Zoom
+  Super + Mouse Wheel Up     Zoom In
+  Super + Mouse Wheel Down   Zoom Out
+
+──────────────────────────────────────────────────────────────────────
+
+󰆐 Mouse
+
+  Super + Left Click         Move Window
+  Super + Right Click        Resize Window
+  Super + Middle Click       Toggle Floating
+  Middle Click (Title)       Make Window Master
+  Left Click (Layout Icon)   Cycle Layout
+  Right Click (Layout Icon)  Monocle Layout
+  Middle Click (Status Bar)  Open Kitty
+
+──────────────────────────────────────────────────────────────────────
+
+󰗼 Session
+
+  Super + Shift + Q          Quit VXWM
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

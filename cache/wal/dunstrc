@@ -23,19 +23,19 @@
     separator_color = frame
 
 [urgency_low]
-    background = "#0b0404"
-    foreground = "#c2c0c0"
-    frame_color = "#665454"
+    background = "#1e160d"
+    foreground = "#c6c4c2"
+    frame_color = "#70675c"
     timeout = 10
 
 [urgency_normal]
-    background = "#0b0404"
-    foreground = "#c2c0c0"
-    frame_color = "#575757"
+    background = "#1e160d"
+    foreground = "#c6c4c2"
+    frame_color = "#30516C"
     timeout = 10
 
 [urgency_critical]
-    background = "#0b0404"
-    foreground = "#c2c0c0"
-    frame_color = "#474747"
+    background = "#1e160d"
+    foreground = "#c6c4c2"
+    frame_color = "#304555"
     timeout = 20

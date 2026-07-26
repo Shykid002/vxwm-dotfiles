@@ -4,31 +4,31 @@
  ******************/
 
 /* الألوان الأساسية */
-@define-color accent_color #474747;          
-@define-color accent_bg_color #575757;       
-@define-color accent_fg_color #c2c0c0;   
+@define-color accent_color #304555;          
+@define-color accent_bg_color #30516C;       
+@define-color accent_fg_color #c6c4c2;   
 
 /* ألوان نافذة التطبيق */
-@define-color window_bg_color #0b0404;   
-@define-color window_fg_color #c2c0c0;   
+@define-color window_bg_color #1e160d;   
+@define-color window_fg_color #c6c4c2;   
 
 /* ألوان شريط العنوان */
-@define-color headerbar_bg_color #0b0404;    
-@define-color headerbar_fg_color #c2c0c0;
-@define-color headerbar_border_color #665454;
-@define-color headerbar_shade_color #0b0404;
+@define-color headerbar_bg_color #1e160d;    
+@define-color headerbar_fg_color #c6c4c2;
+@define-color headerbar_border_color #70675c;
+@define-color headerbar_shade_color #1e160d;
 
 /* ألوان العناصر المنبثقة */
-@define-color popover_bg_color #0b0404;
-@define-color popover_fg_color #c2c0c0;
+@define-color popover_bg_color #1e160d;
+@define-color popover_fg_color #c6c4c2;
 
 /* ألوان العرض */
-@define-color view_bg_color #0b0404;
-@define-color view_fg_color #c2c0c0;
+@define-color view_bg_color #1e160d;
+@define-color view_fg_color #c6c4c2;
 
 /* ألوان البطاقات */
-@define-color card_bg_color #0b0404;
-@define-color card_fg_color #c2c0c0;
+@define-color card_bg_color #1e160d;
+@define-color card_fg_color #c6c4c2;
 @define-color card_shade_color rgba(0, 0, 0, 0.5);
 
 /* ألوان الشريط الجانبي */
@@ -38,56 +38,56 @@
 @define-color sidebar_backdrop_color @window_bg_color;
 
 /* ألوان الخلفية والنص */
-@define-color bg_color #0b0404;
-@define-color fg_color #c2c0c0;
-@define-color text_color #c2c0c0;
-@define-color text_color_disabled #665454;   
+@define-color bg_color #1e160d;
+@define-color fg_color #c6c4c2;
+@define-color text_color #c6c4c2;
+@define-color text_color_disabled #70675c;   
 
 /* ألوان الأزرار */
-@define-color button_bg_color #665454;       
-@define-color button_fg_color #c2c0c0;
-@define-color button_hover_color #8F8F8F;    
-@define-color button_active_color #AEAEAE;   
-@define-color button_checked_bg_color #575757;
-@define-color button_checked_fg_color #c2c0c0;
+@define-color button_bg_color #70675c;       
+@define-color button_fg_color #c6c4c2;
+@define-color button_hover_color #976959;    
+@define-color button_active_color #B78D73;   
+@define-color button_checked_bg_color #30516C;
+@define-color button_checked_fg_color #c6c4c2;
 
 /* ألوان الإطارات */
-@define-color borders #665454;
-@define-color outline_color #665454;
-@define-color outline_variant_color #0b0404;
+@define-color borders #70675c;
+@define-color outline_color #70675c;
+@define-color outline_variant_color #1e160d;
 
 /* ألوان الروابط */
-@define-color link_color #CECECE;            
-@define-color link_visited_color #AEAEAE;
+@define-color link_color #47718B;            
+@define-color link_visited_color #B78D73;
 
 /* ألوان التحذير والخطأ */
-@define-color warning_color #6F6F6F;         
-@define-color warning_bg_color #0b0404;
-@define-color warning_fg_color #c2c0c0;
-@define-color error_color #474747;           
-@define-color error_bg_color #0b0404;
-@define-color error_fg_color #c2c0c0;
-@define-color success_color #575757;         
-@define-color success_bg_color #0b0404;
-@define-color success_fg_color #c2c0c0;
+@define-color warning_color #56565B;         
+@define-color warning_bg_color #1e160d;
+@define-color warning_fg_color #c6c4c2;
+@define-color error_color #304555;           
+@define-color error_bg_color #1e160d;
+@define-color error_fg_color #c6c4c2;
+@define-color success_color #30516C;         
+@define-color success_bg_color #1e160d;
+@define-color success_fg_color #c6c4c2;
 
 /* ألوان الحالة النشطة والمحددة */
-@define-color selected_bg_color #474747;     
-@define-color selected_fg_color #c2c0c0;
-@define-color selected_text_color #c2c0c0;
+@define-color selected_bg_color #304555;     
+@define-color selected_fg_color #c6c4c2;
+@define-color selected_text_color #c6c4c2;
 
 /* ألوان التفاعلية */
-@define-color hover_color #8F8F8F;
-@define-color focus_color #474747;
+@define-color hover_color #976959;
+@define-color focus_color #304555;
 
 /* ألوان وضع الظلام المخصصة */
-@define-color dark_fill_color #0b0404;
-@define-color light_fill_color #665454;
+@define-color dark_fill_color #1e160d;
+@define-color light_fill_color #70675c;
 
 /* ألوان الاشعارات */
-@define-color info_color #8F8F8F;
-@define-color info_bg_color #0b0404;
-@define-color info_fg_color #c2c0c0;
+@define-color info_color #976959;
+@define-color info_bg_color #1e160d;
+@define-color info_fg_color #c6c4c2;
 
 /* ألوان الشفافية */
 @define-color shade_color rgba(0, 0, 0, 0.3);

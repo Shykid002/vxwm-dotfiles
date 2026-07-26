@@ -44,5 +44,8 @@ if [ -f "$HOME/scripts/wal-dunst.sh" ]; then
     "$HOME/scripts/wal-dunst.sh"
 fi
 
+# 4. Restart cava
+killall -USR2 cava
+
 # Send a desktop notification indicating a successful theme change
 notify-send "Wallpaper Updated" "System color theme has been synchronized!"

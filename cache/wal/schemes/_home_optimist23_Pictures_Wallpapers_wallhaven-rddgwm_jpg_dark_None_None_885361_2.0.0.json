@@ -1,0 +1,28 @@
+{
+    "checksum": "9c2a8ca608b20f06b08089b12ac3dd52",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/wallhaven-rddgwm.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1e160d",
+        "foreground": "#c6c4c2",
+        "cursor": "#c6c4c2"
+    },
+    "colors": {
+        "color0": "#1e160d",
+        "color1": "#304555",
+        "color2": "#30516C",
+        "color3": "#56565B",
+        "color4": "#976959",
+        "color5": "#B78D73",
+        "color6": "#47718B",
+        "color7": "#c6c4c2",
+        "color8": "#70675c",
+        "color9": "#304555",
+        "color10": "#30516C",
+        "color11": "#56565B",
+        "color12": "#976959",
+        "color13": "#B78D73",
+        "color14": "#47718B",
+        "color15": "#c6c4c2"
+    }
+}

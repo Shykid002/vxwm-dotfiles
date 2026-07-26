@@ -1,0 +1,28 @@
+{
+    "checksum": "78f787b70de952580074e76991803210",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/Kirov_Oblast_Zuevka_railway_station_asv2019-05_img2.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#101211",
+        "foreground": "#c3c3c3",
+        "cursor": "#c3c3c3"
+    },
+    "colors": {
+        "color0": "#101211",
+        "color1": "#477CB8",
+        "color2": "#3E7DC3",
+        "color3": "#C27B84",
+        "color4": "#6B9097",
+        "color5": "#4B8ACD",
+        "color6": "#6FA7D6",
+        "color7": "#c3c3c3",
+        "color8": "#596d6d",
+        "color9": "#477CB8",
+        "color10": "#3E7DC3",
+        "color11": "#C27B84",
+        "color12": "#6B9097",
+        "color13": "#4B8ACD",
+        "color14": "#6FA7D6",
+        "color15": "#c3c3c3"
+    }
+}

@@ -57,8 +57,8 @@ static const int user_bh = 30;
 #if BAR_PADDING
 static const int top_vertpad = 0;          /* top vertical padding of bar */ 
 static const int bottom_vertpad = 0;       /* bottom vertical padding of bar */
-static const int left_sidepad = 300;         /* left horizontal padding of bar */
-static const int right_sidepad = 300;        /* right horizontal padding of bar */
+static const int left_sidepad = 250;         /* left horizontal padding of bar */
+static const int right_sidepad = 250;        /* right horizontal padding of bar */
 #endif
 
 #define BAR_ALWAYS_ON_TOP 1 /* Makes internal bar on top of other windows. */
@@ -150,7 +150,7 @@ static const char *termcmd[]  = { "kitty", NULL };
 
 /* change wallpaper */
 static const char *wallcmd[] = { "/bin/sh", "-c", "$HOME/scripts/rofi-wallpaper.sh", NULL };
-
+static const char *screenshot_script[] = { "/bin/sh", "-c", "$HOME/scripts/sceenshot.sh", NULL };
 
 
 #if ZOOM
@@ -194,7 +194,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-  { MODKEY,                       XK_e,      spawn, SHCMD("thunar") },
+  { MODKEY,                       XK_e,      spawn, SHCMD("kitty -e spf") },
 
           /* Volume Control (pamixer) */
   { 0, XF86XK_AudioRaiseVolume,  spawn, SHCMD("~/scripts/volume.sh i") },
@@ -213,7 +213,9 @@ static const Key keys[] = {
   { MODKEY,                       XK_w,      spawn,          {.v = wallcmd } },
 
   /* ScreenShots */
-  { 0,                            XK_Print,  spawn,          SHCMD("~/scripts/ss-area.sh") },
+  { MODKEY|ShiftMask,             XK_s,  spawn,          {.v = screenshot_script } },
+
+  { MODKEY, XK_slash, spawn, SHCMD("~/.config/keybinds/keybinds.sh") },
 
 #if XRDB
   { MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },

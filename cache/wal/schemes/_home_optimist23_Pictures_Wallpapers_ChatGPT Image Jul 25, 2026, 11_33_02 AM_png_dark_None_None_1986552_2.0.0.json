@@ -1,0 +1,28 @@
+{
+    "checksum": "9be5d4183bac27c4e6fb14b9af3cd66c",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/ChatGPT Image Jul 25, 2026, 11_33_02 AM.png",
+    "alpha": "100",
+    "special": {
+        "background": "#111010",
+        "foreground": "#c3c3c3",
+        "cursor": "#c3c3c3"
+    },
+    "colors": {
+        "color0": "#111010",
+        "color1": "#694E3B",
+        "color2": "#403D44",
+        "color3": "#544B47",
+        "color4": "#6D554B",
+        "color5": "#6D6560",
+        "color6": "#87563D",
+        "color7": "#c3c3c3",
+        "color8": "#6d5959",
+        "color9": "#694E3B",
+        "color10": "#403D44",
+        "color11": "#544B47",
+        "color12": "#6D554B",
+        "color13": "#6D6560",
+        "color14": "#87563D",
+        "color15": "#c3c3c3"
+    }
+}

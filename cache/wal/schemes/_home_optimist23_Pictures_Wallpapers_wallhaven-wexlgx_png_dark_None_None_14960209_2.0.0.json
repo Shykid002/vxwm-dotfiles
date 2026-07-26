@@ -1,0 +1,28 @@
+{
+    "checksum": "8192d63bd72552632a20c6558f184994",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/wallhaven-wexlgx.png",
+    "alpha": "100",
+    "special": {
+        "background": "#070811",
+        "foreground": "#c1c1c3",
+        "cursor": "#c1c1c3"
+    },
+    "colors": {
+        "color0": "#070811",
+        "color1": "#E06953",
+        "color2": "#BC8C77",
+        "color3": "#EB9070",
+        "color4": "#977B82",
+        "color5": "#B28E87",
+        "color6": "#EFAB8F",
+        "color7": "#c1c1c3",
+        "color8": "#56596a",
+        "color9": "#E06953",
+        "color10": "#BC8C77",
+        "color11": "#EB9070",
+        "color12": "#977B82",
+        "color13": "#B28E87",
+        "color14": "#EFAB8F",
+        "color15": "#c1c1c3"
+    }
+}

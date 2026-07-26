@@ -1,0 +1,62 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+    modi: "dmenu";
+    show-icons: false;
+}
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    width: 650px;
+    border: 2px;
+    border-radius: 10px;
+    border-color: @selected-active-background;
+    background-color: @background;
+}
+
+mainbox {
+    padding: 15px;
+    spacing: 10px;
+    children: [ "inputbar", "listview" ];
+}
+
+inputbar {
+    padding: 10px;
+    border: 0px 0px 1px 0px;
+    border-color: @selected-active-background;
+    children: [ "prompt", "entry" ];
+}
+
+prompt {
+    text-color: @selected-active-background;
+    font: "JetBrainsMono Nerd Font Bold 11";
+}
+
+entry {
+    placeholder: "Search keybinding...";
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+listview {
+    lines: 12;
+    dynamic: true;
+    scrollbar: true;
+    cycle: false;
+    spacing: 3px;
+}
+
+element {
+    padding: 6px;
+    border-radius: 6px;
+}
+
+element selected.normal {
+    background-color: @selected-active-background;
+    text-color: @background;
+}
+
+element-text {
+    font: "JetBrainsMono Nerd Font Mono 11";
+}

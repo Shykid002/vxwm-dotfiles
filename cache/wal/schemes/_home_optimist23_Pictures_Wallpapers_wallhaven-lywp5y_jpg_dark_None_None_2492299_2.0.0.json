@@ -1,0 +1,28 @@
+{
+    "checksum": "6870709977c5ce191f6dc333ff5f8fbc",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/wallhaven-lywp5y.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#19140b",
+        "foreground": "#c5c4c2",
+        "cursor": "#c5c4c2"
+    },
+    "colors": {
+        "color0": "#19140b",
+        "color1": "#5E5D4E",
+        "color2": "#D70C08",
+        "color3": "#F80201",
+        "color4": "#9D482B",
+        "color5": "#2CC17F",
+        "color6": "#BA9462",
+        "color7": "#c5c4c2",
+        "color8": "#6e675a",
+        "color9": "#5E5D4E",
+        "color10": "#D70C08",
+        "color11": "#F80201",
+        "color12": "#9D482B",
+        "color13": "#2CC17F",
+        "color14": "#BA9462",
+        "color15": "#c5c4c2"
+    }
+}

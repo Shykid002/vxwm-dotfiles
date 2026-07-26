@@ -65,4 +65,4 @@ modal_confirm_fg = "#383838"
 modal_confirm_bg = '{color6}'
 
 
-folder_color = "#FFB86C"
+directory_icon_color = '{color1}'

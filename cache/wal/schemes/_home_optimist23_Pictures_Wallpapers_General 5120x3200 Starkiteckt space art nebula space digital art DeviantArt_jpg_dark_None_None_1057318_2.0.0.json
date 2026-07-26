@@ -1,0 +1,28 @@
+{
+    "checksum": "948870d6abb0fd02ab276c085431ba31",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/General 5120x3200 Starkiteckt space art nebula space digital art DeviantArt.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#100710",
+        "foreground": "#c3c1c3",
+        "cursor": "#c3c1c3"
+    },
+    "colors": {
+        "color0": "#100710",
+        "color1": "#983233",
+        "color2": "#BD403A",
+        "color3": "#903A45",
+        "color4": "#A14B4E",
+        "color5": "#EE6157",
+        "color6": "#F98F71",
+        "color7": "#c3c1c3",
+        "color8": "#695669",
+        "color9": "#983233",
+        "color10": "#BD403A",
+        "color11": "#903A45",
+        "color12": "#A14B4E",
+        "color13": "#EE6157",
+        "color14": "#F98F71",
+        "color15": "#c3c1c3"
+    }
+}

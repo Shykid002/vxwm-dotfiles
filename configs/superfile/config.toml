@@ -17,7 +17,7 @@ editor = "nvim"
 
 #-- Directory Editor
 # 
-dir_editor = ""
+dir_editor = "nvim"
 
 #-- Auto check for update
 auto_check_update = true
@@ -95,7 +95,7 @@ file_panel_name_percent = 50
 
 #-- Theme
 # Put your theme's name here!
-theme = "catppuccin-mocha"
+theme = "pywal"
 
 #-- Code Previewer
 # Whether to use the builtin syntax highlighting with chroma or use bat. Values: "" for builtin chroma, "bat" for bat

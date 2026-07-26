@@ -1,0 +1,28 @@
+{
+    "checksum": "5b2ba18270e3a8cf0a9ab433f52747fd",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/wallhaven-lmxmxy.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0e1222",
+        "foreground": "#c2c3c7",
+        "cursor": "#c2c3c7"
+    },
+    "colors": {
+        "color0": "#0e1222",
+        "color1": "#595C63",
+        "color2": "#6A6A6F",
+        "color3": "#A0673E",
+        "color4": "#DCA006",
+        "color5": "#7B7C82",
+        "color6": "#817F84",
+        "color7": "#c2c3c7",
+        "color8": "#5e6172",
+        "color9": "#595C63",
+        "color10": "#6A6A6F",
+        "color11": "#A0673E",
+        "color12": "#DCA006",
+        "color13": "#7B7C82",
+        "color14": "#817F84",
+        "color15": "#c2c3c7"
+    }
+}

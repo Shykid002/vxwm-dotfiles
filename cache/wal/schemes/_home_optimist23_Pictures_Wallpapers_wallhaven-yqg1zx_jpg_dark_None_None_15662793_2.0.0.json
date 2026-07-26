@@ -1,0 +1,28 @@
+{
+    "checksum": "e88f0b6aa2eaefa31543c37e3b405024",
+    "wallpaper": "/home/optimist23/Pictures/Wallpapers/wallhaven-yqg1zx.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#091709",
+        "foreground": "#c1c5c1",
+        "cursor": "#c1c5c1"
+    },
+    "colors": {
+        "color0": "#091709",
+        "color1": "#338926",
+        "color2": "#5D9411",
+        "color3": "#5E9466",
+        "color4": "#99A941",
+        "color5": "#5EA39A",
+        "color6": "#9EA8A2",
+        "color7": "#c1c5c1",
+        "color8": "#596d59",
+        "color9": "#338926",
+        "color10": "#5D9411",
+        "color11": "#5E9466",
+        "color12": "#99A941",
+        "color13": "#5EA39A",
+        "color14": "#9EA8A2",
+        "color15": "#c1c5c1"
+    }
+}

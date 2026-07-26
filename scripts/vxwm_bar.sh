@@ -59,6 +59,26 @@ get_battery() {
     esac
 }
 
+# ==========================================
+# CPU Temperature
+# ==========================================
+
+
+get_temp() {
+
+    temp=$(sensors | awk '
+        /Package id 0:/ {
+            gsub(/\+|°C/,"",$4)
+            print int($4)
+            exit
+        }')
+
+    if [[ -n "$temp" ]]; then
+        printf " %s°C" "$temp"
+    else
+        printf " N/A"
+    fi
+}
 
 
 # ==========================================
@@ -71,8 +91,9 @@ while true; do
     MEM="$(free -h | awk '/Mem:/ {sub(/i/, "", $3); print $3}')"
     DATE="$(date '+%a %d %b')"
     TIME="$(date '+%H:%M')"
+    TEMP="$(get_temp)"
 
-    xsetroot -name " ${BATTERY}| 󰍛 ${MEM} | ${DATE} | ${TIME} "
+    xsetroot -name " ${BATTERY}| 󰍛 ${MEM} | ${TEMP} | ${DATE} | ${TIME} "
 
     sleep 10
 

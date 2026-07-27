@@ -47,5 +47,8 @@ fi
 # 4. Restart cava
 killall -USR2 cava
 
+# lockscreen wallpaper
+betterlockscreen -u "$WALLPAPER"
+
 # Send a desktop notification indicating a successful theme change
 notify-send "Wallpaper Updated" "System color theme has been synchronized!"

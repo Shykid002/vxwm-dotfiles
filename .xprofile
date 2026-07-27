@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# autolock
+xautolock -time 10 -locker "$HOME/scripts/lock.sh" -detectsleep &
+
 # Polkit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 

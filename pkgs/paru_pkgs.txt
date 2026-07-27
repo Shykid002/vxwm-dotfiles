@@ -27,3 +27,7 @@ mbpfan
 
 # Appearance
 python-pywal16
+
+# Lockscreen
+betterlockscreen
+xautolock

@@ -216,6 +216,7 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,             XK_s,  spawn,          {.v = screenshot_script } },
 
   { MODKEY, XK_slash, spawn, SHCMD("~/.config/keybinds/keybinds.sh") },
+  { MODKEY|ShiftMask, XK_l, spawn, SHCMD("$HOME/scripts/lock.sh") },
 
 #if XRDB
   { MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },

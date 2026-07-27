@@ -21,6 +21,9 @@ gst-plugin-pipewire
 libpulse
 pamixer
 pulsemixer
+easyeffects
+lsp-plugins
+calf
 
 # Xorg
 xorg-server

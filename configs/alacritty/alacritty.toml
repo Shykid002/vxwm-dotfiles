@@ -1,0 +1,38 @@
+# Set the default shell program (e.g., zsh on Mac/Linux, pwsh on Windows)
+
+general.live_config_reload = true
+general.import = ["~/.cache/wal/colors-alacritty.toml"]
+
+
+
+
+[terminal.shell]
+program = "/usr/bin/fish"  # On some systems (like Ubuntu/Fedora), use "/usr/bin/fish" instead
+args = ["--login"]
+
+
+[window]
+padding.x = 5
+padding.y = 5
+decorations = "Buttonless"   # Hides top title bar (use "Full" if you want window buttons)
+opacity = 0.9                # Makes the terminal slightly transparent
+blur = true                  # Enables blur under the transparent window (macOS)
+startup_mode = "Windowed"
+
+[font]
+size = 13.0                  # Adjust to your preferred font size
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+
+[scrolling]
+history = 10000              # Number of lines you can scroll back
+multiplier = 3               # Scroll speed
+
+[cursor]
+style = { shape = "Beam", blinking = "off" }
+blink_interval = 800  # Blink slightly faster (500ms)
+blink_timeout = 0     # 0 disables the timeout so it never stops blinking
+thickness = 0.20      # Make the beam slightly thicker
+
+
+
+

@@ -24,6 +24,7 @@ ttf-nerd-fonts-symbols-mono
 
 # Utilities
 mbpfan
+xwinwrap-git
 
 # Appearance
 python-pywal16

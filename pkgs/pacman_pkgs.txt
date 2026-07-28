@@ -102,6 +102,8 @@ xdotool
 xdg-utils
 xdg-user-dirs-gtk
 xwallpaper
+gifsicle 
+xorg-xrandr
 
 # Power
 tlp

@@ -2,8 +2,10 @@ if status is-interactive
 
 	# Commands to run in interactive sessions can go here
   set -U fish_greeting
+  
+  zoxide init fish | source
 
-  oh-my-posh init fish --config ~/.config/oh-my-posh/sim-web.omp.json | source
+  oh-my-posh init fish --config ~/.config/oh-my-posh/patriksvensson.omp.json | source
 
   # MY EDITOR
   set -gx EDITOR nvim

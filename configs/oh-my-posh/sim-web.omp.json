@@ -9,8 +9,8 @@
         {
           "type": "executiontime",
           "style": "powerline",
-          "foreground": "#a9ffb4",
-          "template": " {{ .FormattedMs }}s <#ffffff>\ue601</>",
+          "foreground": " #a9ffb4",
+          "template": " {{ .FormattedMs }}s  <#50fa7b>\ue601</>",
           "options": {
             "threshold": 0,
             "style": "dallas"
@@ -39,7 +39,7 @@
         {
           "type": "path",
           "style": "powerline",
-          "foreground": "#ffafd2",
+          "foreground": "#bd93f9",
           "options": {
             "style": "agnoster_full",
             "home_icon": "home",
@@ -71,7 +71,7 @@
           "options": {
             "always_enabled": true
           },
-          "template": "<#00c7fc>\u276f</>_: "
+          "template": "<#00c7fc> \uf0a4 </>_: "
         }
       ]
     }
@@ -79,7 +79,7 @@
   "console_title_template": "{{ .Folder }}",
   "transient_prompt": {
     "background": "transparent",
-    "foreground": "#FEF5ED",
+    "foreground": "#f1fa8c",
     "template": "{{ .Shell }}"
   },
   "version": 4

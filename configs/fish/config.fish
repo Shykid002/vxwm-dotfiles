@@ -3,10 +3,17 @@ if status is-interactive
 	# Commands to run in interactive sessions can go here
   set -U fish_greeting
 
+  oh-my-posh init fish --config ~/.config/oh-my-posh/sim-web.omp.json | source
 
-	set -gx EDITOR nvim
+  # MY EDITOR
+  set -gx EDITOR nvim
 	set -gx VISUAL nvim
   
+  # MY QT THEME
+  
+  set -gx QT_QPA_PLATFORMTHEME qt6ct
+  set -gx QT_STYLE_OVERRIDE kvantum
+
   alias c="clear"
   alias ff="fastfetch"
   alias install="paru -S"

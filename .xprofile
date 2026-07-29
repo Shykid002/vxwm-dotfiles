@@ -9,6 +9,8 @@ xautolock -time 10 -locker "$HOME/scripts/lock.sh" -detectsleep &
 # Wallpaper
 "$HOME/scripts/restore-wallpaper.sh" &
 
+export QT_QPA_PLATFORMTHEME=qt6ct
+export QT_STYLE_OVERRIDE=kvantum
 
 #xwallpaper --stretch "$HOME/Pictures/Wallpapers/solarized-wall-47.jpg"
 

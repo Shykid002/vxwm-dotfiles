@@ -43,9 +43,4 @@ fi
 vxwm & 
 exec sleep infinity
 
-sxhkd -c ~/.config/bspwm/sxhkdrc &
-
-thunar --daemon &
-exec dbus-launch --exit-with-session bspwm
-
 

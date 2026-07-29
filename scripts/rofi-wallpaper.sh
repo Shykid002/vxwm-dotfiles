@@ -1,68 +1,122 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Target directory containing your wallpapers
+set -euo pipefail
+
+# -----------------------------------------------------------------------------
+# Configuration
+# -----------------------------------------------------------------------------
+
 WALL_DIR="$HOME/Pictures/Wallpapers"
+CACHE_DIR="$HOME/.cache"
+CURRENT_WALL="$CACHE_DIR/current_wallpaper"
 
-# Ensure the wallpaper directory exists, create it if it doesn't
-mkdir -p "$WALL_DIR"
+ROFI_THEME="$HOME/.config/rofi/wall-changer.rasi"
+DUNST_SCRIPT="$HOME/scripts/wal-dunst.sh"
 
-# Kill any existing GIF wallpaper loop before applying a new wallpaper
-killall xwinwrap 2>/dev/null
-killall gifview 2>/dev/null
+mkdir -p "$WALL_DIR" "$CACHE_DIR"
 
-# Generate the input list for Rofi with explicit icon paths (\0icon\x1f)
-# ADDED: Include .gif files in the grep match regex pattern
+# -----------------------------------------------------------------------------
+# Build wallpaper list for Rofi
+# -----------------------------------------------------------------------------
+
+mapfile -d '' -t FILES < <(
+    find "$WALL_DIR" -maxdepth 1 -type f \
+    \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) \
+    -print0 | sort -z
+)
+
 ROFI_INPUT=""
-while read -r file; do
-    if [ -n "$file" ]; then
-        ROFI_INPUT+="${file}\0icon\x1f${WALL_DIR}/${file}\n"
+SELECTED_ROW=0
+
+LAST=""
+[[ -f "$CURRENT_WALL" ]] && LAST="$(cat "$CURRENT_WALL")"
+
+for i in "${!FILES[@]}"; do
+    file="${FILES[$i]}"
+    name="$(basename "$file")"
+
+    ROFI_INPUT+="${name}\0icon\x1f${file}\n"
+
+    if [[ "$file" == "$LAST" ]]; then
+        SELECTED_ROW=$i
     fi
-done <<< "$(ls -1 "$WALL_DIR" | grep -E "\.(jpg|jpeg|png|gif)$")"
+done
 
-# Launch Rofi with icon support and pipe the formatted input
-SELECTION=$(echo -e "$ROFI_INPUT" | rofi -show-icons -theme ~/.config/rofi/wall-changer.rasi -dmenu -i -p "   Wallpaper")
+SELECTION=$(
+    echo -e "$ROFI_INPUT" |
+    rofi \
+        -show-icons \
+        -theme "$ROFI_THEME" \
+        -selected-row "$SELECTED_ROW" \
+        -dmenu \
+        -i \
+        -p "Wallpaper"
+)
 
-# If the user does not select anything (e.g., presses ESC), exit the script safely
-if [ -z "$SELECTION" ]; then
-    exit 1
-fi
+[[ -z "$SELECTION" ]] && exit 0
 
-# Construct the absolute full path to the selected wallpaper file
 WALLPAPER="$WALL_DIR/$SELECTION"
 
-# Get screen dimensions for xwinwrap (Dynamic fallback to 1920x1080 if xrandr fails)
-SCREEN_RES=$(xrandr | grep '*' | awk '{print $1}' | head -n1)
-SCREEN_RES=${SCREEN_RES:-"1920x1080"}
+[[ ! -f "$WALLPAPER" ]] && {
+    notify-send "Wallpaper" "Selected wallpaper does not exist."
+    exit 1
+}
+# -----------------------------------------------------------------------------
+# Save wallpaper for restoration after reboot
+# -----------------------------------------------------------------------------
 
-# ADDED: Conditional engine logic depending on whether a GIF or image file is picked
-if [[ "$WALLPAPER" =~ \.gif$ ]]; then
-    # Run the animated loop in the background layer
-    xwinwrap -g "$SCREEN_RES" -ov -ni -s -nf -- gifview -w WID "$WALLPAPER" -a &
-else
-    # 1. Set the desktop background using xwallpaper with the stretch option
-    xwallpaper --stretch "$WALLPAPER"
-fi
+echo "$WALLPAPER" > "$CURRENT_WALL"
 
-# 2. Run pywal to generate a new color palette based on the wallpaper
+# -----------------------------------------------------------------------------
+# Apply Wallpaper
+# -----------------------------------------------------------------------------
+
+xwallpaper --stretch "$WALLPAPER"
+
+# -----------------------------------------------------------------------------
+# Pywal
+# -----------------------------------------------------------------------------
+
+command -v wal >/dev/null &&
 wal -i "$WALLPAPER" -n
 
-# Reload the Xresources db so xrdb patch inside vxwm can see the new colors
+# -----------------------------------------------------------------------------
+# Reload Xresources
+# -----------------------------------------------------------------------------
+
+[[ -f "$HOME/.cache/wal/colors.Xresources" ]] &&
 xrdb -merge "$HOME/.cache/wal/colors.Xresources"
 
-# Send an X key event to simulate pressing Mod+F5 to live-reload vxwm colors
+# -----------------------------------------------------------------------------
+# Reload vxwm colors
+# -----------------------------------------------------------------------------
+
+command -v xdotool >/dev/null &&
 xdotool key Super+F5
 
-# 3. Trigger the Dunst color synchronizer script to apply the new theme
-if [ -f "$HOME/scripts/wal-dunst.sh" ]; then
-    "$HOME/scripts/wal-dunst.sh"
-fi
+# -----------------------------------------------------------------------------
+# Update Dunst
+# -----------------------------------------------------------------------------
 
-# 4. Restart cava
-killall -USR2 cava
+[[ -x "$DUNST_SCRIPT" ]] &&
+"$DUNST_SCRIPT"
 
-# lockscreen wallpaper (Note: betterlockscreen converts GIFs to static cached frames automatically)
+# -----------------------------------------------------------------------------
+# Restart cava
+# -----------------------------------------------------------------------------
+
+killall -USR2 cava 2>/dev/null || true
+
+# -----------------------------------------------------------------------------
+# Update Betterlockscreen
+# -----------------------------------------------------------------------------
+
+command -v betterlockscreen >/dev/null &&
 betterlockscreen -u "$WALLPAPER"
 
-# Send a desktop notification indicating a successful theme change
-notify-send "Wallpaper Updated" "System color theme has been synchronized!"
+# -----------------------------------------------------------------------------
+# Notification
+# -----------------------------------------------------------------------------
 
+notify-send " 󰸉 Wallpaper Updated" 
+notify-send "  Pywal theme applied successfully."

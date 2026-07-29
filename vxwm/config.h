@@ -147,6 +147,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
 
 static const char *termcmd[]  = { "kitty", NULL };
+static const char *alacrittycmd[] = { "alacritty", NULL };
 
 /* change wallpaper */
 static const char *wallcmd[] = { "/bin/sh", "-c", "$HOME/scripts/rofi-wallpaper.sh", NULL };
@@ -163,6 +164,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
   { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+  { MODKEY,                       XK_T,       spawn,          {.v = alacrittycmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

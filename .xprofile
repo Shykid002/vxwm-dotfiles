@@ -7,11 +7,14 @@ xautolock -time 10 -locker "$HOME/scripts/lock.sh" -detectsleep &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Wallpaper
-xwallpaper --stretch "$HOME/Pictures/Wallpapers/solarized-wall-47.jpg"
+"$HOME/scripts/restore-wallpaper.sh" &
+
+
+#xwallpaper --stretch "$HOME/Pictures/Wallpapers/solarized-wall-47.jpg"
 
 # Pywal
-wal -i "$HOME/Pictures/Wallpapers/solarized-wall-47.jpg"
-xrdb -merge "$HOME/.cache/wal/colors.Xresources"
+#wal -i "$HOME/Pictures/Wallpapers/solarized-wall-47.jpg"
+#xrdb -merge "$HOME/.cache/wal/colors.Xresources"
 
 # MDP
 pgrep -x mpd >/dev/null || mpd &

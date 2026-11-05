@@ -194,19 +194,29 @@ popd >/dev/null
 echo -e "${GREEN}[OK]${RESET} VXWM installed successfully."
 echo
 
-# ==========================
-# Build and Install vcompmgr
-# ==========================
+
+# ==================================
+# Clone, Build and Install vcompmgr
+# ==================================
 
 VCOMPMGR_DIR="vcompmgr"
+REPO_URL="https://codeberg.org/shykid002/vcompmgr.git"
 
-echo -e "${BLUE}[INFO]${RESET} Building and installing vcompmgr..."
-
-if [[ ! -d "$VCOMPMGR_DIR" ]]; then
-    echo -e "${RED}[ERROR]${RESET} vcompmgr source directory not found: '$VCOMPMGR_DIR'"
-    exit 1
+# 1. Handle Missing or Empty Directory
+if [[ ! -d "$VCOMPMGR_DIR" || -z "$(ls -A "$VCOMPMGR_DIR")" ]]; then
+    echo -e "${BLUE}[INFO]${RESET} Directory is empty or missing. Cloning from source..."
+    
+    # Remove it if it's an empty directory to avoid git conflicts
+    [[ -d "$VCOMPMGR_DIR" ]] && rm -rf "$VCOMPMGR_DIR"
+    
+    git clone "$REPO_URL" "$VCOMPMGR_DIR"
+    if [[ $? -ne 0 ]]; then
+        echo -e "${RED}[ERROR]${RESET} Failed to clone repository from $REPO_URL"
+        exit 1
+    fi
 fi
 
+# 2. Verify Repository Integrity
 if [[ ! -f "$VCOMPMGR_DIR/Makefile" ]]; then
     echo -e "${RED}[ERROR]${RESET} Makefile not found in '$VCOMPMGR_DIR'"
     exit 1
@@ -214,13 +224,31 @@ fi
 
 pushd "$VCOMPMGR_DIR" >/dev/null
 
-echo -e "${CYAN}[INFO]${RESET} Compiling vcompmgr..."
-sudo make clean install
+# 3. Compile safely as local user
+echo -e "${CYAN}[INFO]${RESET} Cleaning and compiling vcompmgr..."
+make clean && make
+
+if [[ $? -ne 0 ]]; then
+    echo -e "${RED}[ERROR]${RESET} Compilation failed."
+    echo -e "${YELLOW}[TIP]${RESET} On CachyOS, ensure dependencies are met: sudo pacman -S libxcomposite libxfixes libxdamage libxrender libxext libx11 libdrm"
+    popd >/dev/null
+    exit 1
+fi
+
+# 4. Escalate to sudo ONLY for binary placement
+echo -e "${CYAN}[INFO]${RESET} Installing vcompmgr (requires sudo privileges)..."
+sudo make install
+
+if [[ $? -ne 0 ]]; then
+    echo -e "${RED}[ERROR]${RESET} Installation failed."
+    popd >/dev/null
+    exit 1
+fi
 
 popd >/dev/null
 
 echo -e "${GREEN}[OK]${RESET} vcompmgr installed successfully."
-echo
+
 
 # ==========================
 # Create XSession Entry

@@ -80,7 +80,7 @@ static const char *occupiedtags[] = { "  + ", "  + ", "  + ", "  + "
 #endif
 
 #if INFINITE_TAGS
-#define MOVE_CANVAS_STEP 120 /* Defines how many pixel will be jumped when using movecanvas function */
+#define MOVE_CANVAS_STEP 240 /* Defines how many pixel will be jumped when using movecanvas function */
 #endif
 
 #if INFINITE_TAGS && IT_SHOW_COORDINATES_IN_BAR

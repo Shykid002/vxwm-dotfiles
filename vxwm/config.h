@@ -11,6 +11,14 @@ static const unsigned int snap      = 0;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
+/* media player control */
+static const char *medplaypause[] = { "playerctl", "play-pause", NULL };
+static const char *mednext[]      = { "playerctl", "next", NULL };
+static const char *medprev[]      = { "playerctl", "previous", NULL };
+static const char *medstop[]      = { "playerctl", "stop", NULL };
+
+
+
 /*static const char *numbers[] = {
     "一", "二", "三", "四", "五",
     "六", "七", "八", "九"
@@ -210,6 +218,17 @@ static const Key keys[] = {
   /* Keyboard Backlight */
 { 0, XF86XK_KbdBrightnessUp,   spawn, SHCMD("~/scripts/kbdbrightness.sh +") },
 { 0, XF86XK_KbdBrightnessDown, spawn, SHCMD("~/scripts/kbdbrightness.sh -") },
+
+
+/* modifier                     key                        function        argument */
+{ 0,                     XF86XK_AudioPlay,          spawn,          {.v = medplaypause } },
+{ 0,                     XF86XK_AudioNext,          spawn,          {.v = mednext } },
+{ 0,                     XF86XK_AudioPrev,          spawn,          {.v = medprev } },
+{ 0,                     XF86XK_AudioStop,          spawn,          {.v = medstop } },
+
+
+
+
 
   /* Wallpaper Chooser */
   { MODKEY,                       XK_w,      spawn,          {.v = wallcmd } },

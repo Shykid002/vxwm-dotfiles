@@ -39,6 +39,8 @@ fi
 # IMPORT .xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile
 
+libinput-gestures-setup start &
+
 #exec vxwm >/dev/null 2>&1
 vxwm & 
 exec sleep infinity

@@ -23,6 +23,7 @@ ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
 
 # Utilities
+libinput-gestures
 mbpfan
 xwinwrap-git
 

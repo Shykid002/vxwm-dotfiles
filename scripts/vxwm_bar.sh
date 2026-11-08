@@ -5,6 +5,8 @@
 # Updates the root window name for VXWM
 # ==========================================
 
+
+
 get_battery() {
 
     # Detect battery
@@ -13,7 +15,7 @@ get_battery() {
     elif [[ -d /sys/class/power_supply/BAT1 ]]; then
         BAT="BAT1"
     else
-        echo "󰂃 No Battery"
+        echo "   No Battery"
         return
     fi
 
@@ -87,13 +89,14 @@ get_temp() {
 
 while true; do
 
+  
     BATTERY="$(get_battery)"
     MEM="$(free -h | awk '/Mem:/ {sub(/i/, "", $3); print $3}')"
     DATE="$(date '+%a %d %b')"
     TIME="$(date '+%H:%M')"
     TEMP="$(get_temp)"
 
-    xsetroot -name " ${BATTERY}| 󰍛 ${MEM} | ${TEMP} | ${DATE} | ${TIME} "
+    xsetroot -name " | ${BATTERY} | 󰍛 ${MEM} | ${TEMP} | ${DATE} | ${TIME} "
 
     sleep 10
 

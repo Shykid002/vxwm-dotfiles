@@ -1,9 +1,8 @@
 /* =========================================================================
-   Rofi Wallpaper Picker Theme - Modern Dark Minimalist
+   Rofi Wallpaper Picker Theme - Modern Dark Minimalist (Horizontal Strip)
    ========================================================================= */
 
 * {
-    /* Skema Warna Gelap ala Catppuccin / Tokyo Night */
     bg-col:      #1e1e2e;
     bg-col-light:#313244;
     border-col:  #89b4fa;
@@ -17,12 +16,15 @@
 }
 
 window {
-    width:            650px;
-    height:           500px;
+    /* Make the window wide across the screen and short like a dock */
+    width:            85%;
+    height:           270px;
     border:           2px;
     border-color:     @border-col;
     border-radius:    12px;
     background-color: @bg-col;
+    location:         center;
+    anchor:           center;
 }
 
 mainbox {
@@ -53,39 +55,43 @@ entry {
     placeholder-color: #6c7086;
 }
 
-/* ==================== DAFTAR WALLPAPER ==================== */
+/* ==================== DAFTAR WALLPAPER (HORIZONTAL) ==================== */
 listview {
     border:       0px;
     padding:      10px 15px 15px 15px;
     margin:       0px;
-    columns:      1;       /* 1 Kolom ke bawah biar rapi */
-    lines:        4;       /* Jumlah baris yang kelihatan */
-    spacing:      8px;
-    cycle:        true;
+    columns:      1;           /* MUST be 1 when layout is horizontal */
+    lines:        100;         /* Large line pool to let it append cards infinitely sideways */
+    spacing:      15px;
+    cycle:        false;       /* Turn off loop-jump to keep scroll navigation linear */
     dynamic:      true;
-    layout:       vertical;
+    layout:       horizontal;  /* Force horizontal track layout */
 }
 
 element {
-    padding:          8px;
+    padding:          10px;
     border-radius:    8px;
     background-color: transparent;
     text-color:       @text-col;
-    orientation:      horizontal; /* Gambar di kiri, teks di kanan */
+    orientation:      vertical; /* Image on top, label on the bottom */
+    width:            160px;    /* Lock horizontal card thickness */
     children:         [ element-icon, element-text ];
 }
 
 /* Ukuran Kotak Preview Wallpaper */
 element-icon {
-    size:             110px; /* Lebar foto preview */
+    size:             130px; /* Uniform bounding space for thumbnail imagery */
     cursor:           pointer;
     border-radius:    6px;
+    horizontal-align: 0.5;
 }
 
 element-text {
-    vertical-align:   0.5; /* Biar teksnya pas di tengah (vertikal) */
-    margin:           0px 0px 0px 15px; /* Jarak teks dari gambar */
+    vertical-align:   0.5;
+    horizontal-align: 0.5;
+    margin:           8px 0px 0px 0px; /* Put spacing above text, not left */
     text-color:       inherit;
+    font:             "monospace 9";
 }
 
 /* Ketika Item Dipilih (Hover/Panah) */
@@ -93,3 +99,4 @@ element selected {
     background-color: @selected-col;
     text-color:       @text-sel;
 }
+

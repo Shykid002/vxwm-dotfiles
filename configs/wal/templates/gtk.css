@@ -1,19 +1,19 @@
-/******************
+/**
  * GTK Colors Enhanced
  * Automatically updated by Pywal Template
- ******************/
+ */
 
 /* الألوان الأساسية */
-@define-color accent_color {color1};          
-@define-color accent_bg_color {color2};       
-@define-color accent_fg_color {foreground};   
+@define-color accent_color {color1};
+@define-color accent_bg_color {color2};
+@define-color accent_fg_color {foreground};
 
 /* ألوان نافذة التطبيق */
-@define-color window_bg_color {background};   
-@define-color window_fg_color {foreground};   
+@define-color window_bg_color {background};
+@define-color window_fg_color {foreground};
 
 /* ألوان شريط العنوان */
-@define-color headerbar_bg_color {color0};    
+@define-color headerbar_bg_color {color0};
 @define-color headerbar_fg_color {foreground};
 @define-color headerbar_border_color {color8};
 @define-color headerbar_shade_color {color0};
@@ -41,13 +41,13 @@
 @define-color bg_color {background};
 @define-color fg_color {foreground};
 @define-color text_color {foreground};
-@define-color text_color_disabled {color8};   
+@define-color text_color_disabled {color8};
 
 /* ألوان الأزرار */
-@define-color button_bg_color {color8};       
+@define-color button_bg_color {color8};
 @define-color button_fg_color {foreground};
-@define-color button_hover_color {color4};    
-@define-color button_active_color {color5};   
+@define-color button_hover_color {color4};
+@define-color button_active_color {color5};
 @define-color button_checked_bg_color {color2};
 @define-color button_checked_fg_color {foreground};
 
@@ -57,22 +57,22 @@
 @define-color outline_variant_color {color0};
 
 /* ألوان الروابط */
-@define-color link_color {color6};            
+@define-color link_color {color6};
 @define-color link_visited_color {color5};
 
 /* ألوان التحذير والخطأ */
-@define-color warning_color {color3};         
+@define-color warning_color {color3};
 @define-color warning_bg_color {color0};
 @define-color warning_fg_color {foreground};
-@define-color error_color {color1};           
+@define-color error_color {color1};
 @define-color error_bg_color {color0};
 @define-color error_fg_color {foreground};
-@define-color success_color {color2};         
+@define-color success_color {color2};
 @define-color success_bg_color {color0};
 @define-color success_fg_color {foreground};
 
 /* ألوان الحالة النشطة والمحددة */
-@define-color selected_bg_color {color1};     
+@define-color selected_bg_color {color1};
 @define-color selected_fg_color {foreground};
 @define-color selected_text_color {foreground};
 
@@ -94,10 +94,13 @@
 @define-color backdrop_color rgba(0, 0, 0, 0.5);
 @define-color overlay_color rgba(0, 0, 0, 0.2);
 
-/******************
+/**
  * Structural Force Fixes
- ******************/
-window, .background, dialog, messagedialog, headerbar, notebook {
+ */
+
+window, .background, dialog, messagedialog, headerbar, notebook {{
     background-color: @window_bg_color !important;
     color: @window_fg_color !important;
-}
+}}
+
+

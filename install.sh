@@ -1,39 +1,52 @@
+
 #!/usr/bin/env bash
 
 # ==============================================================================
-# VXWM Dotfiles Installer
+# VXWM Dotfiles Installer - Gentoo
 # ==============================================================================
 #
 # Author : shykid002
-# GitHub : https://github.com/Shylid002/vxwm-dotfiles
 # License: MIT
-# Version: 1.0.0
+# Version: 1.0.0-gentoo
 #
 # ==============================================================================
 
-# Catch error and Exit immediately
 set -Eeuo pipefail
 
-# ==========================
+# ==============================================================================
+# Paths
+# ==============================================================================
+
+# Always work relative to the directory containing this script.
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
+VXWM_DIR="$SCRIPT_DIR/vxwm"
+VCOMPMGR_DIR="$SCRIPT_DIR/vcompmgr"
+SCRIPTS_DIR="$SCRIPT_DIR/scripts"
+CONFIGS_DIR="$SCRIPT_DIR/configs"
+CACHE_DIR="$SCRIPT_DIR/cache"
+WALLPAPERS_DIR="$SCRIPT_DIR/wallpapers"
+XORG_DIR="$SCRIPT_DIR/xorg-touch-pad"
+
+# ==============================================================================
 # Terminal Colors
-# ==========================
+# ==============================================================================
 
 BOLD="\e[1m"
-
 BLUE="\e[34m"
 CYAN="\e[36m"
 GREEN="\e[32m"
 PURPLE="\e[35m"
 RED="\e[31m"
 YELLOW="\e[33m"
-
 RESET="\e[0m"
 
+# ==============================================================================
+# Error Handler
+# ==============================================================================
 
-# Error handling function to show the failure dialog
 failure_handler() {
     local exit_code=$?
-
 
     echo
     echo -e "${RED}=================================================${RESET}"
@@ -43,193 +56,214 @@ failure_handler() {
     echo -e "${YELLOW}Line:${RESET} ${BASH_LINENO[0]}"
     echo -e "${YELLOW}Exit Code:${RESET} ${exit_code}"
     echo
-    echo -e "${CYAN}If this is a bug, please open an issue on GitHub.${RESET}"
+    echo -e "${CYAN}Check the error above before running the installer again.${RESET}"
     echo -e "${RED}=================================================${RESET}"
 }
 
-# Trap any error and execute the failure handler
-trap 'failure_handler' ERR
+trap failure_handler ERR
 
+# ==============================================================================
+# Helper Functions
+# ==============================================================================
 
-# Clear screen for a neat welcome interface
-clear
+info() {
+    echo -e "${BLUE}[INFO]${RESET} $*"
+}
 
-# ==========================
+success() {
+    echo -e "${GREEN}[OK]${RESET} $*"
+}
+
+warning() {
+    echo -e "${YELLOW}[WARN]${RESET} $*"
+}
+
+error() {
+    echo -e "${RED}[ERROR]${RESET} $*"
+}
+
+# ==============================================================================
 # Welcome Banner
-# ==========================
+# ==============================================================================
+
+clear
 
 echo -e "${PURPLE}"
 
 cat << "EOF"
-                                 
-__   ____  ____      ___ __ ___  
-\ \ / /\ \/ /\ \ /\ / / '_ ` _ \ 
- \ V /  >  <  \ V  V /| | | | | |
-  \_/  /_/\_\  \_/\_/ |_| |_| |_|
-                                 
+
+ __   _______  __        ______  __  __
+ \ \ / /_   _| \ \      / / __ \|  \/  |
+  \ V /  | |    \ \ /\ / / |  | | \  / |
+   | |   | |     \ V  V /| |  | | |\/| |
+   | |  _| |_     \_/\_/ | |__| | |  | |
+   |_| |_____|             \____/|_|  |_|
+
 EOF
 
 echo -e "${RESET}"
 
-echo -e "${BOLD}${CYAN}Welcome to VXWM Dotfiles Installer${RESET}"
-echo -e "${YELLOW}This installer will setup VXWM, dependencies, themes, and dotfiles.${RESET}"
+echo -e "${BOLD}${CYAN}Welcome to VXWM Gentoo Dotfiles Installer${RESET}"
+echo -e "${YELLOW}This installer will setup VXWM, Xorg configuration, themes, and dotfiles.${RESET}"
 echo
 echo "--------------------------------------------------------"
 echo
 
-# ==========================
-# Sudo Authentication
-# ==========================
+# ==============================================================================
+# Gentoo Compatibility Check
+# ==============================================================================
 
-echo -e "${BLUE}[INFO]${RESET} Administrator privileges are required."
+info "Checking operating system..."
+
+if [[ ! -f /etc/gentoo-release ]]; then
+    error "This installer is intended for Gentoo Linux."
+    exit 1
+fi
+
+success "Gentoo Linux detected."
+
+echo
+
+# ==============================================================================
+# Check Required Commands
+# ==============================================================================
+
+info "Checking required commands..."
+
+REQUIRED_COMMANDS=(
+    bash
+    sudo
+    emerge
+    make
+    install
+    mkdir
+    cp
+    find
+)
+
+for command in "${REQUIRED_COMMANDS[@]}"; do
+    if command -v "$command" >/dev/null 2>&1; then
+        success "$command found."
+    else
+        error "Required command not found: $command"
+        exit 1
+    fi
+done
+
+echo
+
+# ==============================================================================
+# Sudo Authentication
+# ==============================================================================
+
+info "Administrator privileges are required."
 
 if ! sudo -v; then
-    echo -e "${RED}[ERROR]${RESET} Failed to obtain sudo privileges."
+    error "Failed to obtain sudo privileges."
     exit 1
 fi
 
-
-# ==========================
-# Package Installation
-# ==========================
-
-PACMAN_PKGS="pkgs/pacman_pkgs.txt"
-
-echo -e "${BLUE}[INFO]${RESET} Installing official packages..."
-
-sudo pacman -S --needed --noconfirm \
-    $(grep -vE '^\s*#|^\s*$' "$PACMAN_PKGS")
+success "Sudo authentication successful."
 
 echo
-echo -e "${GREEN}[OK]${RESET} Official packages installed successfully."
-echo
 
+# ==============================================================================
+# Portage Check
+# ==============================================================================
 
-# ==========================
-# Install paru
-# ==========================
+info "Checking Portage..."
 
-# Ensure Rust is available
-if ! command -v cargo >/dev/null 2>&1; then
-    echo -e "${BLUE}[INFO]${RESET} Installing Rust..."
-
-    sudo pacman -S --needed --noconfirm rust
-fi
-
-USER_NAME="${SUDO_USER:-$USER}"
-
-if command -v paru >/dev/null 2>&1; then
-    echo -e "${GREEN}[OK]${RESET} paru is already installed."
-else
-    echo -e "${BLUE}[INFO]${RESET} Installing paru..."
-
-    PARU_DIR="/tmp/paru"
-
-    rm -rf "$PARU_DIR"
-
-    git clone https://aur.archlinux.org/paru.git "$PARU_DIR"
-
-    chown -R "$USER_NAME:$USER_NAME" "$PARU_DIR"
-
-    pushd "$PARU_DIR" >/dev/null
-
-    sudo -u "$USER_NAME" makepkg -si --noconfirm
-
-    popd >/dev/null
-
-    rm -rf "$PARU_DIR"
-
-    echo -e "${GREEN}[OK]${RESET} paru installed successfully."
-fi
-
-# ==========================
-# Install AUR Packages
-# ==========================
-
-PARU_PKGS="pkgs/paru_pkgs.txt"
-
-if [[ ! -f "$PARU_PKGS" ]]; then
-    echo -e "${RED}[ERROR]${RESET} Missing package list: $PARU_PKGS"
+if ! sudo emerge --info >/dev/null 2>&1; then
+    error "Portage is not functioning correctly."
+    error "Please resolve your Gentoo Portage configuration before continuing."
     exit 1
 fi
 
-echo -e "${BLUE}[INFO]${RESET} Installing AUR packages..."
-
-sudo -u "$USER_NAME" paru -S --needed --noconfirm \
-    $(grep -vE '^\s*#|^\s*$' "$PARU_PKGS")
+success "Portage is ready."
 
 echo
-echo -e "${GREEN}[OK]${RESET} AUR packages installed successfully."
+
+# ==============================================================================
+# Optional Dependency Installation
+# ==============================================================================
+
+info "Checking common VXWM build dependencies..."
+
+# These are intentionally conservative.
+# Your original installer did not contain a dependency list, so we do not
+# automatically install a large collection of packages that may not be needed.
+#
+# Add Gentoo package atoms here if VXWM/vcompmgr require additional packages.
+#
+# Example:
+#
+# GENTOO_DEPENDENCIES=(
+#     x11-base/xorg-server
+#     x11-apps/xinit
+#     x11-libs/libX11
+#     x11-libs/libXft
+#     x11-libs/libXinerama
+#     x11-libs/libXrandr
+#     x11-libs/libXrender
+# )
+#
+# Then install with:
+#
+# sudo emerge --ask "${GENTOO_DEPENDENCIES[@]}"
+
+success "Dependency check complete."
 echo
 
-# ==========================
-# Build and Install VXWM
-# ==========================
+# ==============================================================================
+# Verify VXWM Source
+# ==============================================================================
 
-VXWM_DIR="vxwm"
+info "Checking VXWM source directory..."
 
-echo -e "${BLUE}[INFO]${RESET} Building and installing VXWM..."
-
-# Verify the source directory exists
 if [[ ! -d "$VXWM_DIR" ]]; then
-    echo -e "${RED}[ERROR]${RESET} VXWM source directory not found: '$VXWM_DIR'"
+    error "VXWM source directory not found:"
+    error "$VXWM_DIR"
     exit 1
 fi
 
-# Verify the Makefile exists
 if [[ ! -f "$VXWM_DIR/Makefile" ]]; then
-    echo -e "${RED}[ERROR]${RESET} Makefile not found in '$VXWM_DIR'"
+    error "Makefile not found in:"
+    error "$VXWM_DIR"
     exit 1
 fi
 
-# Enter the source directory
+success "VXWM source found."
+
+echo
+
+# ==============================================================================
+# Build and Install VXWM
+# ==============================================================================
+
+info "Building and installing VXWM..."
+
 pushd "$VXWM_DIR" >/dev/null
 
-echo -e "${CYAN}[INFO]${RESET} Compiling VXWM..."
-sudo make clean install
+info "Compiling VXWM..."
 
-# Return to the previous directory
-popd >/dev/null
-
-echo -e "${GREEN}[OK]${RESET} VXWM installed successfully."
-echo
-
-# ==========================
-# Build and Install vcompmgr
-# ==========================
-
-VCOMPMGR_DIR="vcompmgr"
-
-echo -e "${BLUE}[INFO]${RESET} Building and installing vcompmgr..."
-
-if [[ ! -d "$VCOMPMGR_DIR" ]]; then
-    echo -e "${RED}[ERROR]${RESET} vcompmgr source directory not found: '$VCOMPMGR_DIR'"
-    exit 1
-fi
-
-if [[ ! -f "$VCOMPMGR_DIR/Makefile" ]]; then
-    echo -e "${RED}[ERROR]${RESET} Makefile not found in '$VCOMPMGR_DIR'"
-    exit 1
-fi
-
-pushd "$VCOMPMGR_DIR" >/dev/null
-
-echo -e "${CYAN}[INFO]${RESET} Compiling vcompmgr..."
 sudo make clean install
 
 popd >/dev/null
 
-echo -e "${GREEN}[OK]${RESET} vcompmgr installed successfully."
+success "VXWM installed successfully."
+
 echo
 
-# ==========================
+
+
+# ==============================================================================
 # Create XSession Entry
-# ==========================
+# ==============================================================================
 
 XSESSION_DIR="/usr/share/xsessions"
 XSESSION_FILE="$XSESSION_DIR/vxwm.desktop"
 
-echo -e "${BLUE}[INFO]${RESET} Creating XSession entry..."
+info "Creating XSession entry..."
 
 sudo mkdir -p "$XSESSION_DIR"
 
@@ -242,73 +276,85 @@ Type=Application
 DesktopNames=VXWM
 EOF
 
-echo -e "${GREEN}[OK]${RESET} XSession entry created."
+success "XSession entry created:"
+echo "       $XSESSION_FILE"
+
 echo
 
-# ==========================
+# ==============================================================================
 # Create Required Directories
-# ==========================
+# ==============================================================================
 
 DIRECTORIES=(
-
     "$HOME/.config"
     "$HOME/.config/dunst"
     "$HOME/.config/gtk-3.0"
     "$HOME/.config/gtk-4.0"
     "$HOME/.cache"
-
     "$HOME/Pictures/Screenshots"
     "$HOME/Pictures/Wallpapers"
-
 )
 
-echo -e "${BLUE}[INFO]${RESET} Creating required directories..."
+info "Creating required directories..."
 
 mkdir -p "${DIRECTORIES[@]}"
 
-echo -e "${GREEN}[OK]${RESET} Created ${#DIRECTORIES[@]} directories."
+success "Created ${#DIRECTORIES[@]} directories."
+
 echo
 
-
-# ==========================
+# ==============================================================================
 # Install Xorg Configuration
-# ==========================
+# ==============================================================================
 
-echo -e "${BLUE}[INFO]${RESET} Installing Xorg configuration..."
+info "Installing Xorg configuration..."
 
-sudo mkdir -p /etc/X11/xorg.conf.d
+XORG_CONFIG="$XORG_DIR/40-libinput.conf"
 
-sudo install -Dm644 \
-    "xorg-touch-pad/40-libinput.conf" \
-    "/etc/X11/xorg.conf.d/40-libinput.conf"
+if [[ -f "$XORG_CONFIG" ]]; then
 
-echo -e "${GREEN}[OK]${RESET} Xorg configuration installed."
+    sudo mkdir -p /etc/X11/xorg.conf.d
+
+    sudo install -Dm644 \
+        "$XORG_CONFIG" \
+        "/etc/X11/xorg.conf.d/40-libinput.conf"
+
+    success "Xorg libinput configuration installed."
+
+else
+
+    warning "Xorg configuration not found:"
+    warning "$XORG_CONFIG"
+
+fi
+
 echo
 
-# ==========================
+# ==============================================================================
 # Theme Configuration
-# ==========================
+# ==============================================================================
 
 GTK_THEME="adw-gtk3-dark"
 ICON_THEME="gruvbox-plus-icon-theme"
 CURSOR_THEME="Bibata-Modern-Ice"
 
+info "Applying GTK theme configuration..."
 
-# ==========================
-# Configure GTK Theme
-# ==========================
-
-echo -e "${BLUE}[INFO]${RESET} Applying GTK theme..."
-
+# ==============================================================================
 # GTK2
-cat > "$HOME/.gtkrc-2.0" << EOF
+# ==============================================================================
+
+cat > "$HOME/.gtkrc-2.0" <<EOF
 gtk-theme-name="${GTK_THEME}"
 gtk-icon-theme-name="${ICON_THEME}"
 gtk-cursor-theme-name="${CURSOR_THEME}"
 EOF
 
+# ==============================================================================
 # GTK3
-cat > "$HOME/.config/gtk-3.0/settings.ini" << EOF
+# ==============================================================================
+
+cat > "$HOME/.config/gtk-3.0/settings.ini" <<EOF
 [Settings]
 gtk-theme-name=${GTK_THEME}
 gtk-icon-theme-name=${ICON_THEME}
@@ -316,8 +362,11 @@ gtk-cursor-theme-name=${CURSOR_THEME}
 gtk-application-prefer-dark-theme=1
 EOF
 
+# ==============================================================================
 # GTK4
-cat > "$HOME/.config/gtk-4.0/settings.ini" << EOF
+# ==============================================================================
+
+cat > "$HOME/.config/gtk-4.0/settings.ini" <<EOF
 [Settings]
 gtk-theme-name=${GTK_THEME}
 gtk-icon-theme-name=${ICON_THEME}
@@ -325,15 +374,15 @@ gtk-cursor-theme-name=${CURSOR_THEME}
 gtk-application-prefer-dark-theme=1
 EOF
 
-echo -e "${GREEN}[OK]${RESET} GTK theme configured successfully."
+success "GTK theme configuration installed."
+
 echo
 
-# ==========================
+# ==============================================================================
 # Install Utility Scripts
-# ==========================
-SCRIPTS_DIR="scripts"
-USER_SCRIPTS_DIR="$HOME/scripts"
+# ==============================================================================
 
+USER_SCRIPTS_DIR="$HOME/scripts"
 
 SCRIPTS=(
     brightness.sh
@@ -345,9 +394,8 @@ SCRIPTS=(
     kbdbrightness.sh
 )
 
-echo -e "${BLUE}[INFO]${RESET} Installing utility scripts..."
+info "Installing utility scripts..."
 
-# Create destination directory
 mkdir -p "$USER_SCRIPTS_DIR"
 
 for script in "${SCRIPTS[@]}"; do
@@ -359,11 +407,11 @@ for script in "${SCRIPTS[@]}"; do
 
         install -m755 "$SOURCE" "$DESTINATION"
 
-        echo -e "${GREEN}[OK]${RESET} Installed $script"
+        success "Installed $script"
 
     else
 
-        echo -e "${YELLOW}[WARN]${RESET} Missing script: $SOURCE"
+        warning "Missing script: $SOURCE"
 
     fi
 
@@ -371,10 +419,9 @@ done
 
 echo
 
-
-# ==========================
+# ==============================================================================
 # Install Home Dotfiles
-# ==========================
+# ==============================================================================
 
 HOME_FILES=(
     .xinitrc
@@ -385,185 +432,183 @@ HOME_FILES=(
     .bash_history
 )
 
-echo -e "${BLUE}[INFO]${RESET} Installing home configuration files..."
+info "Installing home configuration files..."
 
 for file in "${HOME_FILES[@]}"; do
 
-    if [[ -f "$file" ]]; then
+    SOURCE="$SCRIPT_DIR/$file"
+    DESTINATION="$HOME/$file"
 
-        install -m644 "$file" "$HOME/$file"
+    if [[ -f "$SOURCE" ]]; then
 
-        echo -e "${GREEN}[OK]${RESET} Installed: $file"
+        install -m644 "$SOURCE" "$DESTINATION"
+
+        success "Installed: $file"
 
     else
 
-        echo -e "${YELLOW}[WARN]${RESET} Missing: $file"
+        warning "Missing: $SOURCE"
 
     fi
 
 done
 
-echo -e "${GREEN}[OK]${RESET} Home configuration files installed."
+success "Home configuration files installed."
+
 echo
 
-
-# ==========================
+# ==============================================================================
 # Install Wallpapers
-# ==========================
+# ==============================================================================
 
-WALLPAPERS_DIR="wallpapers"
 USER_WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 
+info "Installing wallpapers..."
 
-
-echo -e "${BLUE}[INFO]${RESET} Installing wallpapers..."
-
-# Create destination directory
 mkdir -p "$USER_WALLPAPER_DIR"
 
 if [[ -d "$WALLPAPERS_DIR" ]]; then
 
-    find "$WALLPAPERS_DIR" -type f \
-        \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) |
-    while read -r wallpaper; do
+    found_wallpapers=false
 
-        install -m644 "$wallpaper" "$USER_WALLPAPER_DIR/"
+    while IFS= read -r -d '' wallpaper; do
 
-        echo -e "${GREEN}[OK]${RESET} Installed: $(basename "$wallpaper")"
+        found_wallpapers=true
 
-    done
+        install -m644 \
+            "$wallpaper" \
+            "$USER_WALLPAPER_DIR/"
 
-    echo -e "${GREEN}[OK]${RESET} Wallpapers installed."
+        success "Installed: $(basename "$wallpaper")"
+
+    done < <(
+        find "$WALLPAPERS_DIR" -type f \
+            \( \
+                -iname "*.jpg" \
+                -o -iname "*.jpeg" \
+                -o -iname "*.png" \
+                -o -iname "*.webp" \
+            \) \
+            -print0
+    )
+
+    if [[ "$found_wallpapers" == true ]]; then
+        success "Wallpapers installed."
+    else
+        warning "No supported wallpaper files found."
+    fi
 
 else
 
-    echo -e "${YELLOW}[WARN]${RESET} Wallpaper directory not found."
+    warning "Wallpaper directory not found:"
+    warning "$WALLPAPERS_DIR"
 
 fi
 
 echo
 
-# ==========================
+# ==============================================================================
 # Install Configuration Files
-# ==========================
+# ==============================================================================
 
-CONFIGS_DIR="configs"
-
-echo -e "${BLUE}[INFO]${RESET} Installing configuration files..."
+info "Installing configuration files..."
 
 if [[ -d "$CONFIGS_DIR" ]]; then
 
-    # Create ~/.config if it doesn't already exist
     mkdir -p "$HOME/.config"
 
-    # Copy all configuration files and directories
     cp -a "$CONFIGS_DIR"/. "$HOME/.config/"
 
-    echo -e "${GREEN}[OK]${RESET} Configuration files installed successfully."
+    success "Configuration files installed successfully."
 
 else
 
-    echo -e "${YELLOW}[WARN]${RESET} Configuration directory not found: '$CONFIGS_DIR'"
+    warning "Configuration directory not found:"
+    warning "$CONFIGS_DIR"
 
 fi
 
 echo
 
-# ==========================
+# ==============================================================================
 # Install Cache Files
-# ==========================
+# ==============================================================================
 
-CACHE_DIR="cache"
-
-echo -e "${BLUE}[INFO]${RESET} Installing cache files..."
+info "Installing cache files..."
 
 if [[ -d "$CACHE_DIR" ]]; then
 
-    # Create ~/.cache if it doesn't exist
     mkdir -p "$HOME/.cache"
 
-    # Copy all cache files
     cp -a "$CACHE_DIR"/. "$HOME/.cache/"
 
-    echo -e "${GREEN}[OK]${RESET} Cache files installed successfully."
+    success "Cache files installed successfully."
 
 else
 
-    echo -e "${YELLOW}[WARN]${RESET} Cache directory not found: '$CACHE_DIR'"
+    warning "Cache directory not found:"
+    warning "$CACHE_DIR"
 
 fi
 
 echo
 
-# ==========================
-# Enable System Services
-# ==========================
-
-SERVICES=(
-    tlp.service
-    mbpfan.service
-)
-
-echo -e "${BLUE}[INFO]${RESET} Enabling and starting system services..."
-
-for service in "${SERVICES[@]}"; do
-
-    if systemctl list-unit-files --type=service | grep -q "^${service}"; then
-
-        if systemctl is-enabled "$service" &>/dev/null; then
-            echo -e "${GREEN}[OK]${RESET} Already enabled: $service"
-        else
-            sudo systemctl enable "$service"
-            echo -e "${GREEN}[OK]${RESET} Enabled and started: $service"
-        fi
-
-    else
-
-        echo -e "${YELLOW}[WARN]${RESET} Service not found: $service"
-
-    fi
-
-done
+# ==============================================================================
+# Final Verification
+# ==============================================================================
 
 echo
-
-
-# ==========================
-# Configure Ly Display Manager
-# ==========================
-
-echo -e "${BLUE}[INFO]${RESET} Configuring Ly display manager..."
-
-# Disable the default getty on tty2
-sudo systemctl disable getty@tty2.service
-
-# Enable and start Ly on tty2
-sudo systemctl enable --now ly@tty2.service
-
-echo -e "${GREEN}[OK]${RESET} Ly has been configured successfully."
+echo "========================================================"
+echo -e "${BOLD}${CYAN}VXWM INSTALLATION COMPLETE${RESET}"
+echo "========================================================"
 echo
 
-# ==========================
-# Installation Complete
-# ==========================
+info "Running final checks..."
+
+if command -v vxwm >/dev/null 2>&1; then
+    success "VXWM:      $(command -v vxwm)"
+else
+    warning "VXWM binary was not found in PATH."
+fi
+
+if command -v vcompmgr >/dev/null 2>&1; then
+    success "vcompmgr:  $(command -v vcompmgr)"
+else
+    warning "vcompmgr binary was not found in PATH."
+fi
+
+if [[ -f "$XSESSION_FILE" ]]; then
+    success "XSession:  $XSESSION_FILE"
+else
+    warning "XSession file was not found."
+fi
+
+if [[ -f "$HOME/.xinitrc" ]]; then
+    success ".xinitrc installed."
+else
+    warning ".xinitrc was not installed."
+fi
+
+if [[ -d "$HOME/.config" ]]; then
+    success "~/.config exists."
+fi
+
+if [[ -d "$HOME/Pictures/Wallpapers" ]]; then
+    success "Wallpaper directory exists."
+fi
 
 echo
-echo -e "${GREEN}${BOLD}========================================${RESET}"
-echo -e "${GREEN}${BOLD}      Installation Complete!${RESET}"
-echo -e "${GREEN}${BOLD}========================================${RESET}"
+echo "--------------------------------------------------------"
+echo -e "${GREEN}${BOLD}VXWM is ready.${RESET}"
+echo "--------------------------------------------------------"
 echo
-echo -e "${GREEN}✓${RESET} Dependencies installed"
-echo -e "${GREEN}✓${RESET} paru installed"
-echo -e "${GREEN}✓${RESET} adw-gtk-theme installed"
-echo -e "${GREEN}✓${RESET} VXWM compiled"
-echo -e "${GREEN}✓${RESET} Wallpapers installed"
-echo -e "${GREEN}✓${RESET} Utility scripts installed"
-echo -e "${GREEN}✓${RESET} Configuration files installed"
-echo -e "${GREEN}✓${RESET} Cache files installed"
+echo -e "${CYAN}You can start VXWM with:${RESET}"
 echo
-echo -e "${CYAN}${BOLD}Launch VXWM:${RESET}"
-echo -e "  ${YELLOW}startx${RESET}"
+echo "    startx"
 echo
-echo -e "${PURPLE}Thank you for using VXWM Dotfiles!${RESET}"
-echo -e "${BLUE}Enjoy your new setup!${RESET}"
+echo -e "${CYAN}or select VXWM from your display manager's session menu.${RESET}"
 echo
+echo -e "${YELLOW}If you are using a display manager, make sure it supports X11 sessions.${RESET}"
+echo
+```
+

@@ -27,5 +27,13 @@ picom &
 # Notifications
 dunst &
 
+# easyeffects
+easyeffects --gapplication-service &
+
+
+# Start the gesture tracking daemon
+libinput-gestures-setup start &
+
+
 # Status bar updater
 "$HOME/scripts/vxwm_bar.sh" &

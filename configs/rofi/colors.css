@@ -1,0 +1,20 @@
+/* rofi colors from pywal */
+* {
+  text-color: #c5c1c1;
+}
+window {
+  background-color: #170909;
+  border-color: #DCB241;
+}
+inputbar {
+border-color: #DCB241;
+}
+entry {
+  placeholder-color: #c5c1c1;
+}
+textbox {
+  background-color: #DCB241;
+}
+element selected {
+    border-color: #DCB241;
+}

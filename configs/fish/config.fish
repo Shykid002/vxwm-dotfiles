@@ -11,10 +11,18 @@ if status is-interactive
   set -gx EDITOR nvim
 	set -gx VISUAL nvim
   
+  # PATHS
+  fish_add_path ~/.local/bin
+  fish_add_path $HOME/go/bin
+  fish_add_path ~/.local/share/quickshell/ukishima
+
   # MY QT THEME
   
   set -gx QT_QPA_PLATFORMTHEME qt6ct
-  set -gx QT_STYLE_OVERRIDE kvantum
+  #set -gx QT_STYLE_OVERRIDE kvantum
+
+  alias vault-sync "cd ~/Obsidian; and git add .; and git commit -m 'vault sync'; git push origin main"
+
 
   alias c="clear"
   alias ff="fastfetch"

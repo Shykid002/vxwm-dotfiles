@@ -34,6 +34,9 @@ easyeffects --gapplication-service &
 # Start the gesture tracking daemon
 libinput-gestures-setup start &
 
+# KeyShow
+keyshow &
+
 
 # Status bar updater
 "$HOME/scripts/vxwm_bar.sh" &

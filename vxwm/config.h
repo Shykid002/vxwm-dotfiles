@@ -11,6 +11,15 @@ static const unsigned int snap      = 0;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
+/* media controller commands */
+static const char *medplaycmd[] = { "playerctl", "play-pause", NULL };
+static const char *mednextcmd[] = { "playerctl", "next",       NULL };
+static const char *medprevcmd[] = { "playerctl", "previous",   NULL };
+
+static const char *spotifycmd[] = { "flatpak", "run", "com.spotify.Client", NULL };
+
+
+
 /*static const char *numbers[] = {
     "一", "二", "三", "四", "五",
     "六", "七", "八", "九"
@@ -202,6 +211,17 @@ static const Key keys[] = {
   { 0, XF86XK_AudioRaiseVolume,  spawn, SHCMD("~/scripts/volume.sh i") },
   { 0, XF86XK_AudioLowerVolume,  spawn, SHCMD("~/scripts/volume.sh d") },
   { 0, XF86XK_AudioMute,         spawn, SHCMD("~/scripts/volume.sh t") },
+
+	/* modifier                     key        function        argument */
+	{ 0,                            XF86XK_AudioPlay, spawn,   {.v = medplaycmd } },
+	{ 0,                            XF86XK_AudioNext, spawn,   {.v = mednextcmd } },
+	{ 0,                            XF86XK_AudioPrev, spawn,   {.v = medprevcmd } },
+
+
+/* Spotify launcher */
+/* modifier          key                  function        argument */
+{ MODKEY,           XK_s,                spawn,          {.v = spotifycmd } },
+
 
   /* Monitor Screen (brightnessctl) */
   { 0, XF86XK_MonBrightnessUp,   spawn, SHCMD("~/scripts/brightness.sh +5%") },

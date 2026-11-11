@@ -1,4 +1,5 @@
-return {
+-- 1. Return your plugin list to lazy.nvim
+local plugins = {
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
@@ -25,29 +26,18 @@ return {
     },
   },
 
-  -- ADDED: Your permanent smear-cursor setup inside NvChad's plugin structure
+  -- Your permanent smear-cursor setup inside NvChad's plugin structure
   {
     "sphamba/smear-cursor.nvim",
     enabled = true, -- Keeps it permanently enabled
     lazy = false,   -- Forces NvChad to load it immediately on startup
     opts = {
-      -- Terminal compatibility settings
-      --cterm_cursor_colors = { 240, 245, 250, 255 },
-      --cterm_bg = 235,
-    
-      -- Behavior adjustments
       smear_between_buffers = true,
       smear_between_neighbor_lines = true,
       scroll_buffer_space = true,
       legacy_computing_symbols_support = false,
       smear_insert_mode = false,
-
-      -- Fire Hazard settings
-   -- cursor_color = "#ff4000",
-   -- cursor_color = "#00f0ff",
-   -- cursor_color = "#ff8800",
       cursor_color = "#6df8b2",
-   -- cursor_color = "#c578dc",
       particles_enabled = true,
       particle_max_num = 200,
       stiffness = 0.5,
@@ -55,12 +45,8 @@ return {
       trailing_exponent = 5,
       damping = 0.6,
       gradient_exponent = 0,
-
-      -- Target tracking fixes
       never_draw_over_target = true, 
       hide_target_hack = true,       
-      
-      -- Particle physics
       particle_spread = 1,
       particles_per_second = 500,
       particles_per_length = 50,
@@ -71,8 +57,6 @@ return {
       particle_gravity = -50,
       min_distance_emit_particles = 0,
     },
-
-     -- Force highlights to refresh after NvChad's Base46 theme finishes loading
     config = function(_, opts)
       require("smear_cursor").setup(opts)
       vim.api.nvim_set_hl(0, "SmearCursor", { fg = "#6df8b2", bg = "NONE" })
@@ -80,13 +64,16 @@ return {
   },
 }
 
+-- 2. FORCE MATUGEN TO RUN UNCONDITIONALLY ON STARTUP
+local status, matugen = pcall(require, "matugen")
+if status then
+  -- Wrap it in VimEnter to make sure it loads AFTER NvChad clears the screen
+  vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+      matugen.setup()
+    end,
+  })
+end
 
-
-
-
-
-
-
-
-
+return plugins
 
